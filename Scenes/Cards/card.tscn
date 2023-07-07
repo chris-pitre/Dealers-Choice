@@ -11,9 +11,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_edhlu")
-action_component = NodePath("ActionComponent")
+action_component = NodePath("BasicActionComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
-[node name="ActionComponent" type="Node" parent="."]
+[node name="BasicActionComponent" type="Node" parent="."]
 script = ExtResource("3_bnx2b")
