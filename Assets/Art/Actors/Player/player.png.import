@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0sty3rrmq0ft"
-path="res://.godot/imported/card_attack.png-fff23da86522021abd8afc23e753dd89.ctex"
+uid="uid://dt5en3mukbjux"
+path="res://.godot/imported/player.png-c333479c4cbf698f4ee8d5160e8e7e21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Cards/card_attack.png"
-dest_files=["res://.godot/imported/card_attack.png-fff23da86522021abd8afc23e753dd89.ctex"]
+source_file="res://Assets/Art/Actors/Player/player.png"
+dest_files=["res://.godot/imported/player.png-c333479c4cbf698f4ee8d5160e8e7e21.ctex"]
 
 [params]
 
