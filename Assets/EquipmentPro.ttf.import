@@ -1,0 +1,41 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+<<<<<<< Updated upstream
+uid="uid://bmho0330jgaj1"
+=======
+uid="uid://bh10nm1uoi1xo"
+>>>>>>> Stashed changes
+path="res://.godot/imported/EquipmentPro.ttf-d47b0d10e9cdeeaa21f731390a85084b.fontdata"
+
+[deps]
+
+source_file="res://Assets/EquipmentPro.ttf"
+dest_files=["res://.godot/imported/EquipmentPro.ttf-d47b0d10e9cdeeaa21f731390a85084b.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+<<<<<<< Updated upstream
+subpixel_positioning=1
+=======
+subpixel_positioning=0
+>>>>>>> Stashed changes
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

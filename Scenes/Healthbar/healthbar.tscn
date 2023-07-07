@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://3mwmpmxoqax0"]
+
+[ext_resource type="Texture2D" uid="uid://ceo6bdykjucph" path="res://Assets/Art/UI/health_under.png" id="1_b4eqc"]
+[ext_resource type="Theme" uid="uid://drt86c713pqkw" path="res://Assets/basic.tres" id="1_dbnm4"]
+[ext_resource type="Texture2D" uid="uid://bwl2jryy70uts" path="res://Assets/Art/UI/health_progress.png" id="2_28f8j"]
+[ext_resource type="Script" path="res://Scenes/Healthbar/healthbar.gd" id="4_m84lf"]
+
+[node name="Healthbar" type="TextureProgressBar"]
+offset_right = 128.0
+offset_bottom = 24.0
+theme = ExtResource("1_dbnm4")
+texture_under = ExtResource("1_b4eqc")
+texture_progress = ExtResource("2_28f8j")
+radial_fill_degrees = 0.0
+script = ExtResource("4_m84lf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1
