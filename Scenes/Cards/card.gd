@@ -4,7 +4,7 @@ extends Control
 @export var card_sprite: CompressedTexture2D
 @export var action_component: ActionComponent
 
-var card_index: int
+static var card_index: int
 
 func _ready():
 	$Sprite2D.texture = card_sprite
