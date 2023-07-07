@@ -1,10 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://pdp7race40id"]
+[gd_scene load_steps=5 format=3 uid="uid://pdp7race40id"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_ecggc"]
 [ext_resource type="Script" path="res://Scenes/Deck/deck.gd" id="1_u1mqi"]
+[ext_resource type="Resource" uid="uid://b2vte6m1yml1v" path="res://Scripts/DeckTemplates/player_starting_deck.tres" id="3_cbybi"]
+[ext_resource type="Resource" uid="uid://b2vte6m1yml1v" path="res://Scripts/DeckTemplates/enemy_starting_deck.tres" id="4_bysq7"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ecggc")
 
-[node name="Deck" type="Node2D" parent="."]
+[node name="PlayerDeck" type="Node2D" parent="."]
 script = ExtResource("1_u1mqi")
+base_deck = ExtResource("3_cbybi")
+
+[node name="EnemyDeck" type="Node2D" parent="."]
+script = ExtResource("1_u1mqi")
+base_deck = ExtResource("4_bysq7")
+
+[node name="DealerDeck" type="Node2D" parent="."]
+script = ExtResource("1_u1mqi")
+is_dealer_deck = true

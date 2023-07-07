@@ -1,8 +1,17 @@
 class_name Deck
 extends Node2D
 
+@export var base_deck: DeckTemplate
+@export var is_dealer_deck: bool
+
 static var num_cards: int = 0
 static var card_indexes: Array
+
+func _ready():
+	if base_deck:
+		for card in base_deck.cards:
+			add_card(card.instantiate())
+		shuffle_deck()
 
 func play_card(index: int):
 	var array_index = card_indexes.find(index)

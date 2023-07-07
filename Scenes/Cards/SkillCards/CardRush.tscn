@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://btkjdeq8ymt1y"]
+
+[ext_resource type="Script" path="res://Scenes/Cards/card.gd" id="1_562pb"]
+[ext_resource type="Texture2D" uid="uid://d4dqr3eyl7wst" path="res://Assets/Art/Cards/card_skill_rush.png" id="2_1ia2w"]
+[ext_resource type="Script" path="res://Scripts/Components/action_component.gd" id="3_lyand"]
+
+[node name="CardRush" type="Control" node_paths=PackedStringArray("action_component")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_562pb")
+card_sprite = ExtResource("2_1ia2w")
+action_component = NodePath("ActionComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ActionComponent" type="Node" parent="."]
+script = ExtResource("3_lyand")
+value = 1
+action = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

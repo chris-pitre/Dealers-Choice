@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://h3s44g3v4cmp"]
+
+[ext_resource type="Script" path="res://Scenes/Cards/card.gd" id="1_xb251"]
+[ext_resource type="Texture2D" uid="uid://0sty3rrmq0ft" path="res://Assets/Art/Cards/card_attack.png" id="2_020ou"]
+[ext_resource type="Script" path="res://Scripts/Components/action_component.gd" id="3_r7agu"]
+
+[node name="CardAttack" type="Control" node_paths=PackedStringArray("action_component")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xb251")
+card_sprite = ExtResource("2_020ou")
+action_component = NodePath("ActionComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ActionComponent" type="Node" parent="."]
+script = ExtResource("3_r7agu")
+value = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

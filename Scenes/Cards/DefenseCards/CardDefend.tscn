@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn8cw2rb3ndc8"]
+
+[ext_resource type="Script" path="res://Scenes/Cards/card.gd" id="1_w2pfs"]
+[ext_resource type="Texture2D" uid="uid://cjhoef3d8lli0" path="res://Assets/Art/Cards/card_skill_defend.png" id="2_y7jf4"]
+[ext_resource type="Script" path="res://Scripts/Components/action_component.gd" id="3_us1ro"]
+
+[node name="CardDefend" type="Control" node_paths=PackedStringArray("action_component")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_w2pfs")
+card_sprite = ExtResource("2_y7jf4")
+action_component = NodePath("ActionComponent")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ActionComponent" type="Node" parent="."]
+script = ExtResource("3_us1ro")
+value = 1
+action = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
