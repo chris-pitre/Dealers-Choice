@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dooj4h66ljltf"]
+[gd_scene load_steps=3 format=3 uid="uid://djgrk5udeo3qf"]
 
 [ext_resource type="Script" path="res://Scenes/Cards/card.gd" id="1_edhlu"]
 [ext_resource type="Script" path="res://Scripts/Components/action_component.gd" id="3_bnx2b"]
 
-[node name="Card" type="Node2D"]
+[node name="Card" type="Control" node_paths=PackedStringArray("action_component")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_edhlu")
+action_component = NodePath("ActionComponent")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
