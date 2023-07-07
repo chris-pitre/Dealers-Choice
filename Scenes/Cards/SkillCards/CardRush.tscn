@@ -10,6 +10,7 @@ anchors_preset = 0
 script = ExtResource("1_562pb")
 card_sprite = ExtResource("2_1ia2w")
 action_component = NodePath("ActionComponent")
+card_name = "Rush"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 

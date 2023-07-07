@@ -3,6 +3,7 @@ extends Control
 
 @export var card_sprite: CompressedTexture2D
 @export var action_component: ActionComponent
+@export var card_name: String
 
 static var card_index: int
 

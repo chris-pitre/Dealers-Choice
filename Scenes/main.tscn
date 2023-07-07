@@ -9,13 +9,16 @@
 script = ExtResource("1_ecggc")
 
 [node name="PlayerDeck" type="Node2D" parent="."]
+position = Vector2(170, 236)
 script = ExtResource("1_u1mqi")
 base_deck = ExtResource("3_cbybi")
 
 [node name="EnemyDeck" type="Node2D" parent="."]
+position = Vector2(956, 225)
 script = ExtResource("1_u1mqi")
 base_deck = ExtResource("4_bysq7")
 
 [node name="DealerDeck" type="Node2D" parent="."]
+position = Vector2(544, 417)
 script = ExtResource("1_u1mqi")
 is_dealer_deck = true
