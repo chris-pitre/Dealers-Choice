@@ -1,23 +1,21 @@
 class_name ActionComponent
 extends Node
 
-enum ActionTypes {ATTACK, DEFEND, RUSH, HEAL}
-
 @export var value: int
-@export var action: ActionTypes	
+@export var action: ActionData.ActionTypes
 
 func do_action(target) -> void:
 	match action:
-		ActionTypes.ATTACK:
+		ActionData.ActionTypes.ATTACK:
 			print("Attacked for: "+str(value))
 			#do an attack
-		ActionTypes.DEFEND:
+		ActionData.ActionTypes.DEFEND:
 			print("Defended for: "+str(value))
 			#do a defend
-		ActionTypes.RUSH:
+		ActionData.ActionTypes.RUSH:
 			print("Rushed for: "+str(value))
 			#do a rush
-		ActionTypes.HEAL:
+		ActionData.ActionTypes.HEAL:
 			print("Healed for: "+str(value))
 			#do a heal
 			

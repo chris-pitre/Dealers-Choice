@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v8tt7h11xinx"
-path="res://.godot/imported/card_attack_heavy.png-152fa750974ebc349f981830eeafb654.ctex"
+uid="uid://bjdpy8bfjn61y"
+path="res://.godot/imported/card_skill_parry.png-8d11d68c34f01f1d3409aada33787f40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Cards/card_attack_heavy.png"
-dest_files=["res://.godot/imported/card_attack_heavy.png-152fa750974ebc349f981830eeafb654.ctex"]
+source_file="res://Assets/Art/Cards/card_skill_parry.png"
+dest_files=["res://.godot/imported/card_skill_parry.png-8d11d68c34f01f1d3409aada33787f40.ctex"]
 
 [params]
 

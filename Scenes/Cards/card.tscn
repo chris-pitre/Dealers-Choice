@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://djgrk5udeo3qf"]
+[gd_scene load_steps=4 format=3 uid="uid://djgrk5udeo3qf"]
 
 [ext_resource type="Script" path="res://Scenes/Cards/card.gd" id="1_edhlu"]
+[ext_resource type="Texture2D" uid="uid://7tacfxya1l4s" path="res://Assets/Art/Cards/card_attack_pistol.png" id="2_xrgo8"]
 [ext_resource type="Script" path="res://Scripts/Components/action_component.gd" id="3_bnx2b"]
 
 [node name="Card" type="Control" node_paths=PackedStringArray("action_component")]
@@ -13,7 +14,20 @@ grow_vertical = 2
 script = ExtResource("1_edhlu")
 action_component = NodePath("BasicActionComponent")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_xrgo8")
+
+[node name="Label" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 1.0
+grow_vertical = 0
 
 [node name="BasicActionComponent" type="Node" parent="."]
 script = ExtResource("3_bnx2b")

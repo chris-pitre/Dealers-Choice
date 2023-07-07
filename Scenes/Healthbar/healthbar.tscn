@@ -1,18 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://3mwmpmxoqax0"]
+[gd_scene load_steps=5 format=3 uid="uid://ctgcxuni0gyb8"]
 
-[ext_resource type="Texture2D" uid="uid://ceo6bdykjucph" path="res://Assets/Art/UI/health_under.png" id="1_b4eqc"]
-[ext_resource type="Theme" uid="uid://drt86c713pqkw" path="res://Assets/basic.tres" id="1_dbnm4"]
-[ext_resource type="Texture2D" uid="uid://bwl2jryy70uts" path="res://Assets/Art/UI/health_progress.png" id="2_28f8j"]
-[ext_resource type="Script" path="res://Scenes/Healthbar/healthbar.gd" id="4_m84lf"]
+[ext_resource type="Theme" uid="uid://cembnguo3bee7" path="res://Assets/theme.tres" id="1_jf2tv"]
+[ext_resource type="Texture2D" uid="uid://ceo6bdykjucph" path="res://Assets/Art/UI/health_under.png" id="2_cqujd"]
+[ext_resource type="Texture2D" uid="uid://bwl2jryy70uts" path="res://Assets/Art/UI/health_progress.png" id="3_vbk2w"]
+[ext_resource type="Script" path="res://Scenes/Healthbar/healthbar.gd" id="4_xqxy3"]
 
 [node name="Healthbar" type="TextureProgressBar"]
 offset_right = 128.0
 offset_bottom = 24.0
-theme = ExtResource("1_dbnm4")
-texture_under = ExtResource("1_b4eqc")
-texture_progress = ExtResource("2_28f8j")
-radial_fill_degrees = 0.0
-script = ExtResource("4_m84lf")
+theme = ExtResource("1_jf2tv")
+value = 100.0
+texture_under = ExtResource("2_cqujd")
+texture_progress = ExtResource("3_vbk2w")
+script = ExtResource("4_xqxy3")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
