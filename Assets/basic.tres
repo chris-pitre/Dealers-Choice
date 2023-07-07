@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_resource type="Theme" load_steps=3 format=3 uid="uid://drt86c713pqkw"]
 
 [ext_resource type="FontFile" uid="uid://bmho0330jgaj1" path="res://Assets/EquipmentPro.ttf" id="1_8u6tf"]
@@ -9,3 +10,11 @@ spacing_bottom = -4
 
 [resource]
 default_font = SubResource("FontVariation_u3ei7")
+=======
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cksyrpn8t31lp"]
+
+[ext_resource type="FontFile" uid="uid://bh10nm1uoi1xo" path="res://Assets/EquipmentPro.ttf" id="1_8u6tf"]
+
+[resource]
+default_font = ExtResource("1_8u6tf")
+>>>>>>> Stashed changes

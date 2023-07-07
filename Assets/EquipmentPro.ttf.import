@@ -2,7 +2,11 @@
 
 importer="font_data_dynamic"
 type="FontFile"
+<<<<<<< Updated upstream
 uid="uid://bmho0330jgaj1"
+=======
+uid="uid://bh10nm1uoi1xo"
+>>>>>>> Stashed changes
 path="res://.godot/imported/EquipmentPro.ttf-d47b0d10e9cdeeaa21f731390a85084b.fontdata"
 
 [deps]
@@ -21,7 +25,11 @@ msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
 hinting=1
+<<<<<<< Updated upstream
 subpixel_positioning=1
+=======
+subpixel_positioning=0
+>>>>>>> Stashed changes
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]
