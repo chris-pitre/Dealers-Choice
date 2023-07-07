@@ -16,7 +16,9 @@ func _ready():
 
 func play_card(target):
 	var card = get_child(0)
+	print(name+" does!")
 	card.do_action(target)
+	delete_card(card)
 
 func add_card(card: GameCard):
 	num_cards += 1

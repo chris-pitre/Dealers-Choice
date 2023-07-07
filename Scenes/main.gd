@@ -2,7 +2,8 @@ extends Node
 
 var turn_manager = preload("res://Scripts/TurnManager/turn_manager.tres")
 
-var cards_to_deal
+var cards_to_deal: int
+var turn_queue: Array[TurnManager.Turns]
 
 func _ready():
 	#Initializing Different Phases
@@ -37,17 +38,28 @@ func _on_start_phase_started():
 func _on_draw_phase_started():
 	cards_to_deal = floor($DealerDeck.num_cards/3)
 	print("Cards to deal: "+str(cards_to_deal))
-	turn_manager.set_draw_phase_turn(TurnManager.DrawPhaseTurns.Player)
+	turn_manager.set_draws(TurnManager.Draws.Player)
 	
 func _on_action_phase_started():
-	pass
+	for i in range($PlayerDeck.num_cards + $EnemyDeck.num_cards):
+		if i % 2 == 0:
+			turn_queue.append(TurnManager.Turns.Player)
+		else:
+			turn_queue.append(TurnManager.Turns.Enemy)
+	do_turn()
+
+func do_turn():
+	if turn_queue.size() <= 0:
+		while true:
+			true == true
+	turn_manager.set_turns(turn_queue.pop_front())
 	
 func _on_player_draw_started():
 	deal_card($PlayerDeck)
 	if cards_to_deal <= 0:
 		turn_manager.set_phase(TurnManager.Phases.ActionPhase)
 	else:
-		turn_manager.set_draw_phase_turn(TurnManager.DrawPhaseTurns.Enemy)
+		turn_manager.set_draws(TurnManager.Draws.Enemy)
 	
 
 func _on_enemy_draw_started():
@@ -55,7 +67,7 @@ func _on_enemy_draw_started():
 	if cards_to_deal <= 0:
 		turn_manager.set_phase(TurnManager.Phases.ActionPhase)
 	else:
-		turn_manager.set_draw_phase_turn(TurnManager.DrawPhaseTurns.Player)
+		turn_manager.set_draws(TurnManager.Draws.Player)
 	
 func deal_card(deck: Deck):
 	var top_card = $DealerDeck.get_child(0)
@@ -65,7 +77,9 @@ func deal_card(deck: Deck):
 	print("Cards Left: "+str(cards_to_deal))
 	
 func _on_player_turn_started():
-	pass
+	$PlayerDeck.play_card(null)
+	do_turn()
 
 func _on_enemy_turn_started():
-	pass
+	$EnemyDeck.play_card(null)
+	do_turn()

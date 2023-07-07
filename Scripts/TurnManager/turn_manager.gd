@@ -6,8 +6,8 @@ var current_draw
 var current_turn
 
 enum Phases {StartPhase, DrawPhase, ActionPhase}
-enum DrawPhaseTurns{Player, Enemy}
-enum ActionPhaseTurns {Player, Enemy}
+enum Draws {Player, Enemy}
+enum Turns {Player, Enemy}
 
 signal start_phase_started
 signal draw_phase_started
@@ -29,20 +29,20 @@ func set_phase(value: Phases):
 		Phases.ActionPhase:
 			emit_signal("action_phase_started")
 
-func set_draw_phase_turn(value: DrawPhaseTurns):
+func set_draws(value: Draws):
 	current_draw = value
 	match value:
-		DrawPhaseTurns.Player:
+		Draws.Player:
 			emit_signal("player_draw_started")
-		DrawPhaseTurns.Enemy:
+		Draws.Enemy:
 			emit_signal("enemy_draw_started")
 
-func set_action_phase_turn(value: ActionPhaseTurns):
+func set_turns(value: Turns):
 	current_turn = value
 	match value:
-		ActionPhaseTurns.Player: 
+		Turns.Player: 
 			emit_signal("player_turn_started")
-		ActionPhaseTurns.Enemy:
+		Turns.Enemy:
 			emit_signal("enemy_turn_started")
 			
 
