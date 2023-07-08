@@ -85,6 +85,7 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
 [node name="Dealer" parent="BattleMargin" instance=ExtResource("3_fd2id")]
+visible = false
 layout_mode = 2
 
 [node name="BattleActor" parent="BattleMargin" instance=ExtResource("4_u0fom")]

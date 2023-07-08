@@ -37,6 +37,7 @@ func _deck_added_card() -> void:
 
 
 func _deck_removed_card(card_index: int) -> void:
+	print(get_parent().name)
 	get_child(card_index).queue_free()
 
 

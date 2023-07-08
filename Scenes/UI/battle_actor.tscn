@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/UI/battle_actor.gd" id="1_xwkth"]
 [ext_resource type="PackedScene" uid="uid://1xlmutoli5xt" path="res://Scenes/UI/healthbar.tscn" id="2_odalc"]
 [ext_resource type="Texture2D" uid="uid://b0c77a1jvfk1o" path="res://Assets/Art/UI/portraitback.png" id="4_gpiod"]
-[ext_resource type="PackedScene" path="res://Scenes/UI/statuses_bar.tscn" id="5_rsfcg"]
+[ext_resource type="PackedScene" uid="uid://s5qmuv01fj5v" path="res://Scenes/UI/statuses_bar.tscn" id="5_rsfcg"]
 
 [node name="BattleActor" type="VBoxContainer" node_paths=PackedStringArray("deck_display", "healthbar", "statuses")]
 anchors_preset = 9

@@ -31,16 +31,16 @@ func _set_card_flags(x) -> void:
 
 func play_card(user: BattleActor, target: BattleActor):
 	if action & Action.Attack:
-		print("%s used %s for %d damage." % [user.data.name, name, numbers[0]])
+		#print("%s used %s for %d damage." % [user.data.name, name, numbers[0]])
 		target.damage(numbers[0])
 	if action & Action.Defend:
-		print("%s used %s for %d defense." % [user.data.name, name, numbers[0]])
+		#print("%s used %s for %d defense." % [user.data.name, name, numbers[0]])
 		user.defend(numbers[0])
 	if action & Action.Rush:
-		print("%s rushed." % [user.data.name])
+		#print("%s rushed." % [user.data.name])
 		user.rush()
 	if action & Action.Heal:
-		print("%s is healing for %d" % [user.data.name, numbers[0]])
+		#print("%s is healing for %d" % [user.data.name, numbers[0]])
 		user.heal(numbers[0])
 	if action & Action.Custom:
 		if custom_behavior:

@@ -9,14 +9,12 @@ class_name Battle extends Control
 @onready var spinner = $Spinner
 @onready var current_target_actor = battle_actor_left
 
-
 func _ready() -> void:
 	battle_manager.battle_ended.connect(_on_battle_end)
 	starting_phase()
 
 
 func starting_phase() -> void:
-	await get_tree().create_timer(0.5).timeout
 	shuffle_decks_in([battle_actor_left.data.deck.cards, battle_actor_right.data.deck.cards])
 	await get_tree().create_timer(0.5).timeout
 	dealing_phase()
@@ -35,6 +33,8 @@ func attack_phase() -> void:
 		battle_manager.player = battle_actor_left
 	if battle_manager.enemy == null:
 		battle_manager.enemy = battle_actor_right
+	
+	print("-------------------------------------")
 	
 	battle_manager.create_queue()
 	battle_manager.start_battle()
