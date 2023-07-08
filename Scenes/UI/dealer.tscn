@@ -22,6 +22,7 @@ num_cards_left_label = NodePath("NumCardsLeft")
 [node name="TopCard" parent="." instance=ExtResource("2_6dano")]
 layout_mode = 2
 size_flags_horizontal = 4
+hoverable = false
 
 [node name="NumCardsLeft" type="Label" parent="."]
 layout_mode = 2
@@ -57,7 +58,6 @@ layout_mode = 2
 texture = ExtResource("5_2muf6")
 
 [node name="SwapBack" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
-visible = false
 layout_mode = 2
 
 [node name="Icon" parent="DealerActionBar/SwapBack" index="0"]

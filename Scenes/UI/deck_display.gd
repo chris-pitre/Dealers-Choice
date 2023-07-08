@@ -7,13 +7,17 @@ const CARD_DISPLAY = preload("res://Scenes/UI/card_display.tscn")
 var deck: Deck: set = _set_deck
 
 
+@export var hover_direction: Vector2 = Vector2.ZERO
+
+
 func _ready() -> void:
 	if deck:
 		_set_deck(deck)
 
 
 func get_compact_separation() -> int:
-	return floor((size.y - 96.0 * get_child_count()) / (get_child_count() - 1))
+	var sep = floor((size.y - 96.0 * get_child_count()) / (get_child_count() - 1))
+	return min(sep, 0)
 
 
 func _set_deck(_deck: Deck) -> void:
@@ -27,6 +31,7 @@ func _set_deck(_deck: Deck) -> void:
 func _deck_added_card() -> void:
 	var new_card_display = CARD_DISPLAY.instantiate()
 	add_child(new_card_display)
+	new_card_display.hover_direction = hover_direction
 	new_card_display.load_card(deck.cards[deck.size() - 1])
 	set("theme_override_constants/v_separation", get_compact_separation())
 

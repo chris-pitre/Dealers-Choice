@@ -1,14 +1,15 @@
-class_name BattleActor extends Control
-
-@export var deck_display: DeckDisplay
-@export var data: BattleActorData
-
-var shield: int = 0
+class_name BattleActor extends VBoxContainer
 
 signal actor_rush_start(actor: BattleActor)
 signal actor_shield_changed(actor: BattleActor, old_value: int, new_value: int)
 signal actor_health_changed(actor: BattleActor, old_value: int, new_value: int)
 signal actor_death(actor: BattleActor)
+
+var shield: int = 0
+
+@export var deck_display: DeckDisplay
+@export var data: BattleActorData
+@export var healthbar: Healthbar
 
 func _ready() -> void:
 	deck_display.deck = data.deck
@@ -41,6 +42,8 @@ func damage(x: int) -> void:
 		actor_health_changed.emit(self, old_health, data.health)
 	if data.health == 0:
 		actor_death.emit(self)
+	healthbar.health = data.health
+	healthbar.max_health = data.max_health
 
 func defend(x: int) -> void:
 	var old_shield = shield
@@ -52,6 +55,8 @@ func heal(x: int) -> void:
 	data.health += x
 	data.health = clamp(data.health, 0, data.max_health)
 	actor_health_changed.emit(self, old_health, data.health)
+	healthbar.health = data.health
+	healthbar.max_health = data.max_health
 
 func rush() -> void:
 	actor_rush_start.emit(self)
