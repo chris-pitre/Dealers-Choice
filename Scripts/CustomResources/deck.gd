@@ -12,6 +12,9 @@ func add_card(card: Card) -> void:
 	card.flags_changed.connect(_on_card_flags_changed)
 	added_card.emit()
 
+func remove_top_card() -> Card:
+	return remove_card(0)
+
 func remove_card(card_index: int) -> Card:
 	var card = cards.pop_at(card_index)
 	removed_card.emit(card_index)
