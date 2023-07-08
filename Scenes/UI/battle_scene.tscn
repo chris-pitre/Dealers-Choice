@@ -110,7 +110,6 @@ size_flags_horizontal = 8
 
 [connection signal="turn_changed" from="BattleManager" to="Spinner" method="_on_battle_manager_turn_changed"]
 [connection signal="dealer_dealt" from="BattleMargin/Dealer" to="." method="_on_dealer_dealer_dealt"]
-[connection signal="dealer_dealt" from="BattleMargin/Dealer" to="Spinner" method="_on_dealer_dealer_dealt"]
 
 [editable path="BattleMargin/BattleActor"]
 [editable path="BattleMargin/BattleActor2"]

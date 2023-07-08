@@ -3,10 +3,13 @@ extends TextureRect
 var spin = 0.0
 var current_actor: BattleActor
 
-func _on_dealer_dealer_dealt(_card) -> void:
-	spin = 0 if spin == PI else PI
+func change_spinner(actor: BattleActor) -> void:
+	if actor.is_player:
+		spin = 0
+	else:
+		spin = PI
 	flip()
-
+	
 func _on_battle_manager_turn_changed(actor) -> void:
 	if actor.is_player:
 		spin = 0

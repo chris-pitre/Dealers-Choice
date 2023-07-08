@@ -6,7 +6,7 @@ class_name Battle extends Control
 @export var battle_actor_left: BattleActor
 @export var battle_actor_right: BattleActor
 
-
+@onready var spinner = $Spinner
 @onready var current_target_actor = battle_actor_left
 
 
@@ -23,6 +23,8 @@ func starting_phase() -> void:
 
 
 func dealing_phase() -> void:
+	current_target_actor = battle_actor_left
+	spinner.change_spinner(battle_actor_left)
 	dealer.show()
 
 
@@ -52,6 +54,7 @@ func get_new_battle() -> void:
 func _on_dealer_dealer_dealt(card: Card) -> void:
 	current_target_actor.data.deck.add_card(card)
 	current_target_actor = battle_actor_left if current_target_actor == battle_actor_right else battle_actor_right
+	spinner.change_spinner(current_target_actor)
 	if dealer.deck.size() <= 0:
 		attack_phase()
 
