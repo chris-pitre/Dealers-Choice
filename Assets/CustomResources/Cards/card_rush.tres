@@ -9,5 +9,5 @@ name = "Rush"
 description = "Rushes the next two cards"
 sprite = ExtResource("2_5njc3")
 numbers = Array[int]([])
-action = 2
+action = 4
 card_flags = 0

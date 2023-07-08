@@ -1,6 +1,10 @@
 class_name Card extends Resource
 
-enum Action{Attack, Defend, Rush, Heal}
+enum Action{Attack = 1, 
+	Defend = 2, 
+	Rush = 4, 
+	Heal = 8,
+}
 enum CardFlags{
 	Flipped = 1,
 	Marked = 2,
@@ -12,26 +16,27 @@ signal flags_changed(card: Card, new_flags: int)
 @export_multiline var description: String = "This is a description."
 @export var sprite: Texture
 @export var numbers: Array[int] = []
-@export var action: Action 
 
+@export_flags("Attack", "Defend", "Rush", "Heal") var action = 0: set = _set_action
 @export_flags("Flipped", "Marked") var card_flags = 0: set = _set_card_flags
+
+func _set_action(x) -> void:
+	action = x
 
 func _set_card_flags(x) -> void:
 	card_flags = x
 	flags_changed.emit(x)
 
-
 func play_card(user: BattleActor, target: BattleActor):
-	match action:
-		Action.Attack:
-			print("%s used %s for %d damage." % [user.data.name, name, numbers[0]])
-			target.damage(numbers[0])
-		Action.Defend:
-			print("%s used %s for %d defense." % [user.data.name, name, numbers[0]])
-			user.defend(numbers[0])
-		Action.Rush:
-			print("%s rushed." % [user.data.name])
-			user.rush()
-		Action.Heal:
-			print("Healing for: ", numbers[0])
-			user.heal(numbers[0])
+	if action & Action.Attack:
+		print("%s used %s for %d damage." % [user.data.name, name, numbers[0]])
+		target.damage(numbers[0])
+	if action & Action.Defend:
+		print("%s used %s for %d defense." % [user.data.name, name, numbers[0]])
+		user.defend(numbers[0])
+	if action & Action.Rush:
+		print("%s rushed." % [user.data.name])
+		user.rush()
+	if action & Action.Heal:
+		print("%s is healing for %d" % [user.data.name, numbers[0]])
+		user.heal(numbers[0])

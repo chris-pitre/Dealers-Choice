@@ -9,5 +9,5 @@ name = "Pistol"
 description = "Fires a pistol for %d damage."
 sprite = ExtResource("2_delfn")
 numbers = Array[int]([10])
-action = 0
+action = 1
 card_flags = 0

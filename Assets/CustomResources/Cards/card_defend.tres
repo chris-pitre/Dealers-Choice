@@ -9,5 +9,5 @@ name = "Defend"
 description = "Prevents the next %d damage."
 sprite = ExtResource("2_3xla1")
 numbers = Array[int]([5])
-action = 1
+action = 2
 card_flags = 0

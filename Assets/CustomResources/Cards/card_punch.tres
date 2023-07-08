@@ -9,5 +9,5 @@ name = "Punch"
 description = "Punches for %d damage."
 sprite = ExtResource("2_v8r7k")
 numbers = Array[int]([5])
-action = 0
+action = 1
 card_flags = 0
