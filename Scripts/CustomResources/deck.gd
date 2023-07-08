@@ -8,6 +8,7 @@ signal card_flags_modified(idx: int, new_flags: int)
 @export var cards: Array[Card] = []
 
 func add_card(card: Card) -> void:
+	card = card.duplicate()
 	cards.append(card)
 	card.flags_changed.connect(_on_card_flags_changed)
 	added_card.emit()
