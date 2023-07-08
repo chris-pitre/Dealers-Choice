@@ -11,13 +11,14 @@ base_font = ExtResource("4_r1v1j")
 spacing_top = -4
 spacing_bottom = -5
 
-[node name="CardDisplay" type="Control"]
+[node name="CardDisplay" type="Control" node_paths=PackedStringArray("action_component")]
 custom_minimum_size = Vector2(64, 96)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_khyc3")
+action_component = NodePath("BasicActionComponent")
 
 [node name="CardOffset" type="MarginContainer" parent="."]
 layout_mode = 0

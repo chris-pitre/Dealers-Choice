@@ -112,7 +112,7 @@ func _on_deal_card(is_player: bool):
 		enemy_deck.add_card(top_card)
 	cards_to_deal -= 1
 	print("Cards Left: "+str(cards_to_deal))
-	emit_signal("deal_finished")
+	deal_finished.emit()
 	
 func _on_player_turn_started():
 	print("Player Health: "+str(player.health))

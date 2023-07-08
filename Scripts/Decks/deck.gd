@@ -9,6 +9,10 @@ const CardScene = preload("res://Scenes/Cards/card_display.tscn")
 
 var card_array: Array[GameCard] = []
 
+signal card_played(card: GameCard)
+signal card_added(card: GameCard)
+signal deck_shuffled
+
 func populate():
 	if base_deck:
 		for card in base_deck.cards:
@@ -19,16 +23,19 @@ func populate():
 
 func play_card(actor: BattleActor, target: BattleActor) -> GameCard:
 	var card = card_array.pop_front()
+	card_played.emit(card)
 	print(deck_name+" does!")
 	card.do_action(actor, target)
 	return card
 
 func add_card(card: GameCard):
 	card_array.append(card)
+	card_added.emit(card)
 	
 func delete_card(card: GameCard):
 	card_array.erase(card)
 
 func shuffle_deck():
 	card_array.shuffle()
+	deck_shuffled.emit()
 

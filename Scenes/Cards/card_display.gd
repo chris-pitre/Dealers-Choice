@@ -25,9 +25,12 @@ func load_card(template: CardTemplate):
 	card_sprite.texture = template.texture
 	card_name.text = template.name
 	card_description.text = template.description % template.numbers
+	action_component.action = template.action
+	if template.numbers.size() >= 1:
+		action_component.value = template.numbers[0]
 
-func do_action(target):
-	action_component.do_action(target)
+func do_action(actor, target):
+	action_component.do_action(actor, target)
 
 func set_card_offset(_offset: Vector2) -> void:
 	offset = _offset
