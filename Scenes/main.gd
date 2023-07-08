@@ -74,7 +74,6 @@ func _on_player_draw_started():
 		turn_manager.set_phase(TurnManager.Phases.ActionPhase)
 	else:
 		turn_manager.set_draws(TurnManager.Draws.Enemy)
-	
 
 func _on_enemy_draw_started():
 	$DealerManager.is_player_draw = false

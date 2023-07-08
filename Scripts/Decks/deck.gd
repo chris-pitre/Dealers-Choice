@@ -1,7 +1,7 @@
 class_name Deck
 extends Resource
 
-const CardScene = preload("res://Scenes/Cards/card.tscn")
+const CardScene = preload("res://Scenes/Cards/card_display.tscn")
 
 @export var base_deck: DeckTemplate
 @export var is_dealer_deck: bool
