@@ -1,19 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0wvh4jwf3mlh"]
+[gd_scene load_steps=6 format=3 uid="uid://d0wvh4jwf3mlh"]
 
-[ext_resource type="Script" path="res://Scripts/TurnManager/battle_manager.gd" id="1_yvwla"]
+[ext_resource type="Script" path="res://Scripts/TurnManager/battle_manager.gd" id="1_6hl1r"]
+[ext_resource type="Script" path="res://Scenes/UI/battle.gd" id="1_s35lp"]
 [ext_resource type="Texture2D" uid="uid://d01gpbtxh4iuw" path="res://Assets/Art/UI/background.png" id="2_lckx0"]
 [ext_resource type="PackedScene" uid="uid://c1575apjrcn0e" path="res://Scenes/UI/dealer.tscn" id="3_fd2id"]
-[ext_resource type="PackedScene" uid="uid://dl7n7dtjesfee" path="res://Scenes/UI/battle_actor.tscn" id="5_mw2we"]
+[ext_resource type="PackedScene" uid="uid://dl7n7dtjesfee" path="res://Scenes/UI/battle_actor.tscn" id="4_u0fom"]
 
-[node name="BattleScene" type="Control"]
+[node name="Battle" type="Control"]
 custom_minimum_size = Vector2(640, 360)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_s35lp")
 
 [node name="BattleManager" type="Node" parent="."]
-script = ExtResource("1_yvwla")
+script = ExtResource("1_6hl1r")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -39,9 +41,14 @@ theme_override_constants/margin_bottom = 8
 [node name="Dealer" parent="BattleMargin" instance=ExtResource("3_fd2id")]
 layout_mode = 2
 
-[node name="BattleActor" parent="BattleMargin" instance=ExtResource("5_mw2we")]
+[node name="BattleActor" parent="BattleMargin" instance=ExtResource("4_u0fom")]
 layout_mode = 2
 
-[node name="BattleActor2" parent="BattleMargin" instance=ExtResource("5_mw2we")]
+[node name="BattleActor2" parent="BattleMargin" instance=ExtResource("4_u0fom")]
 layout_mode = 2
 size_flags_horizontal = 8
+
+[connection signal="dealer_dealt" from="BattleMargin/Dealer" to="." method="_on_dealer_dealer_dealt"]
+[connection signal="dealer_mark" from="BattleMargin/Dealer" to="." method="_on_dealer_dealer_mark"]
+[connection signal="dealer_shuffle" from="BattleMargin/Dealer" to="." method="_on_dealer_dealer_shuffle"]
+[connection signal="dealer_swap_back" from="BattleMargin/Dealer" to="." method="_on_dealer_dealer_swap_back"]

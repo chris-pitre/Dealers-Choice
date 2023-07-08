@@ -1,6 +1,7 @@
-class_name DeckDisplay extends HBoxContainer
+class_name DeckDisplay extends VFlowContainer
 
-@export var deck: Deck: set = _set_deck
+
+var deck: Deck: set = _set_deck
 
 
 func _ready() -> void:

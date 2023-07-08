@@ -52,6 +52,7 @@ layout_mode = 2
 [node name="SwapBack" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
 layout_mode = 2
 
+[connection signal="pressed" from="DealButton" to="." method="_on_deal_button_pressed"]
 [connection signal="pressed" from="DealerActionBar/Shuffle" to="." method="_on_shuffle_pressed"]
 [connection signal="pressed" from="DealerActionBar/Mark" to="." method="_on_mark_pressed"]
 [connection signal="pressed" from="DealerActionBar/SwapBack" to="." method="_on_swap_back_pressed"]
