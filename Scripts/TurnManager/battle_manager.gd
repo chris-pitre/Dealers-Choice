@@ -18,7 +18,7 @@ func _set_enemy(actor: BattleActor) -> void:
 	enemy.actor_rush_start.connect(_do_rush)
 
 func create_queue() -> void:
-	var queue_length = enemy.data.deck.size()
+	var queue_length = enemy.data.deck.size() + player.data.deck.size()
 	for i in range(queue_length):
 		if i % 2 == 0:
 			battle_queue.append(player)
@@ -27,11 +27,12 @@ func create_queue() -> void:
 	
 func start_battle() -> void:
 	while not battle_queue.is_empty():
-		var turn = battle_queue.pop_front()
+		var turn = battle_queue[0]
 		var opponent = enemy if turn == player else player
 		var cards_used = await turn.play_cards(NUM_CARDS_PER_TURN, opponent)
 		for card in cards_used:
 			discard.add_card(card)
+		battle_queue.pop_front()
 		#await end of that turn eventually
 
 ## Swaps two turns in the turn queue for rush
@@ -43,6 +44,7 @@ func swap_turns(a: int, b: int) -> void:
 ## We do a little rushing
 func _do_rush(actor: BattleActor):
 	var first_index = battle_queue.find(actor)
+	print(first_index)
 	if battle_queue.size() - first_index >= 5:
 		swap_turns(first_index + 4, first_index + 1)
 	elif battle_queue.size() - first_index >= 3:
