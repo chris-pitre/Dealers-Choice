@@ -9,6 +9,9 @@ var enemy: BattleActor : set = _set_enemy
 
 @onready var discard: Deck = Deck.new()
 
+signal turn_changed(actor: BattleActor)
+signal battle_ended
+
 func _set_player(actor: BattleActor) -> void:
 	player = actor
 	player.actor_rush_start.connect(_do_rush)
@@ -28,12 +31,14 @@ func create_queue() -> void:
 func start_battle() -> void:
 	while not battle_queue.is_empty():
 		var turn = battle_queue[0]
+		turn_changed.emit(turn)
 		var opponent = enemy if turn == player else player
 		var cards_used = await turn.play_cards(NUM_CARDS_PER_TURN, opponent)
 		for card in cards_used:
 			discard.add_card(card)
 		battle_queue.pop_front()
 		#await end of that turn eventually
+	battle_ended.emit()
 
 ## Swaps two turns in the turn queue for rush
 func swap_turns(a: int, b: int) -> void:
