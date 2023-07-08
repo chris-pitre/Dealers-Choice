@@ -26,3 +26,5 @@ func shuffle_deck():
 		var random_index = randi() % cards.size()
 		move_card(i, random_index)
 	
+func size() -> int:
+	return cards.size()

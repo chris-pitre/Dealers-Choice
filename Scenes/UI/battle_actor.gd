@@ -4,6 +4,7 @@ class_name BattleActor extends Control
 var battle_manager
 var active_turn: bool = false
 
+var deck: Deck
 
 func play_cards(num: int) -> void:
 	pass
