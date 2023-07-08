@@ -11,11 +11,13 @@
 base_font = ExtResource("3_7mxcj")
 spacing_bottom = -4
 
-[node name="Dealer" type="VBoxContainer"]
+[node name="Dealer" type="VBoxContainer" node_paths=PackedStringArray("top_card", "num_cards_left_label")]
 size_flags_horizontal = 4
 size_flags_vertical = 8
 alignment = 2
 script = ExtResource("1_bu4e4")
+top_card = NodePath("TopCard")
+num_cards_left_label = NodePath("NumCardsLeft")
 
 [node name="TopCard" parent="." instance=ExtResource("2_6dano")]
 layout_mode = 2

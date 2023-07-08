@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Deck" load_steps=5 format=3 uid="uid://epabbq7fun7f"]
+
+[ext_resource type="Resource" uid="uid://bobtsnbacgtwp" path="res://Assets/CustomResources/Cards/card_punch.tres" id="1_kxxjq"]
+[ext_resource type="Script" path="res://Scripts/CustomResources/deck.gd" id="1_yx6op"]
+[ext_resource type="Resource" uid="uid://cbcbjmdjgkutr" path="res://Assets/CustomResources/Cards/card_defend.tres" id="2_rgk57"]
+[ext_resource type="Resource" uid="uid://dcjkphoc4vs5w" path="res://Assets/CustomResources/Cards/card_pistol.tres" id="3_3tu6e"]
+
+[resource]
+script = ExtResource("1_yx6op")
+cards = Array[Resource("res://Scripts/CustomResources/card.gd")]([ExtResource("1_kxxjq"), ExtResource("1_kxxjq"), ExtResource("2_rgk57"), ExtResource("2_rgk57"), ExtResource("3_3tu6e"), ExtResource("3_3tu6e")])

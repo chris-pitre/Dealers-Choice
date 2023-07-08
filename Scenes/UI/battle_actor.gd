@@ -4,7 +4,6 @@ class_name BattleActor extends Control
 @export var data: BattleActorData
 
 var shield: int = 0
-var deck: Deck = Deck.new()
 
 signal actor_rush_start(actor: BattleActor)
 signal actor_shield_changed(actor: BattleActor, old_value: int, new_value: int)
@@ -12,15 +11,16 @@ signal actor_health_changed(actor: BattleActor, old_value: int, new_value: int)
 signal actor_death(actor: BattleActor)
 
 func _ready() -> void:
-	deck_display.deck = deck
+	deck_display.deck = data.deck
 
 
 func play_cards(num: int, target: BattleActor) -> Array[Card]:
 	var card_array: Array[Card] = []
 	for i in range(num):
-		var card = deck.remove_top_card()
+		var card = data.deck.remove_top_card()
 		card_array.append(card)
 		card.play_card(self, target)
+	await get_tree().create_timer(0.3).timeout
 	return card_array
 
 

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BattleActorData" load_steps=4 format=3 uid="uid://bttej4rq33ohs"]
+
+[ext_resource type="Texture2D" uid="uid://ygw3tsq5b5fs" path="res://Assets/Art/Actors/jamiroquai.png" id="1_3yb6r"]
+[ext_resource type="Script" path="res://Scripts/CustomResources/battle_actor_data.gd" id="1_eya18"]
+[ext_resource type="Resource" uid="uid://bp0nr7bt2n8ih" path="res://Assets/CustomResources/Decks/testdeckenemy.tres" id="1_mi8fe"]
+
+[resource]
+script = ExtResource("1_eya18")
+name = "jamiroquai"
+portrait = ExtResource("1_3yb6r")
+deck = ExtResource("1_mi8fe")
+health = 30
+max_health = 30

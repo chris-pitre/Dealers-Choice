@@ -11,14 +11,14 @@ var enemy: BattleActor : set = _set_enemy
 
 func _set_player(actor: BattleActor) -> void:
 	player = actor
-	player.actor_start_rush.connect(_do_rush)
+	player.actor_rush_start.connect(_do_rush)
 	
 func _set_enemy(actor: BattleActor) -> void:
 	enemy = actor
-	enemy.actor_start_rush.connect(_do_rush)
+	enemy.actor_rush_start.connect(_do_rush)
 
 func create_queue() -> void:
-	var queue_length = enemy.deck.size() + player.deck.size()
+	var queue_length = enemy.data.deck.size()
 	for i in range(queue_length):
 		if i % 2 == 0:
 			battle_queue.append(player)
@@ -29,7 +29,7 @@ func start_battle() -> void:
 	while not battle_queue.is_empty():
 		var turn = battle_queue.pop_front()
 		var opponent = enemy if turn == player else player
-		var cards_used = turn.play_cards(NUM_CARDS_PER_TURN, opponent)
+		var cards_used = await turn.play_cards(NUM_CARDS_PER_TURN, opponent)
 		for card in cards_used:
 			discard.add_card(card)
 		#await end of that turn eventually

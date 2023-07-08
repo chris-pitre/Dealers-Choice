@@ -8,14 +8,17 @@ var deck: Deck: set = _set_deck
 
 
 @export var top_card: CardDisplay
+@export var num_cards_left_label: Label
 
 
 func _on_shuffle_pressed() -> void:
 	deck.shuffle_deck()
+	top_card.load_card(deck.cards[0])
 
 
 func _on_swap_back_pressed() -> void:
 	deck.move_card(0, deck.size())
+	top_card.load_card(deck.cards[0])
 
 
 func _on_mark_pressed() -> void:
@@ -24,8 +27,11 @@ func _on_mark_pressed() -> void:
 
 func _on_deal_button_pressed() -> void:
 	dealer_dealt.emit(deck.remove_card(0))
+	if deck.cards.size() > 0:
+		top_card.load_card(deck.cards[0])
+	num_cards_left_label.text = "Num cards left: %d" % deck.size()
 
 
-func _set_deck(deck: Deck) -> void:
-	deck = deck
+func _set_deck(_deck: Deck) -> void:
+	deck = _deck
 	top_card.load_card(deck.cards[0])

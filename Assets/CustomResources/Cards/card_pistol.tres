@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dcjkphoc4vs5w"]
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dcjkphoc4vs5w"]
 
 [ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="1_ulc4u"]
+[ext_resource type="Texture2D" uid="uid://7tacfxya1l4s" path="res://Assets/Art/Cards/card_attack_pistol.png" id="2_delfn"]
 
 [resource]
 script = ExtResource("1_ulc4u")
-name = "TestCard"
-description = "This is a description."
-numbers = Array[int]([])
+name = "Pistol"
+description = "Fires a pistol for %d damage."
+sprite = ExtResource("2_delfn")
+numbers = Array[int]([10])
+action = 0
+card_flags = 0

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bobtsnbacgtwp"]
+
+[ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="1_2dbua"]
+[ext_resource type="Texture2D" uid="uid://bdga08iynf27q" path="res://Assets/Art/Cards/card_attack_punch.png" id="2_v8r7k"]
+
+[resource]
+script = ExtResource("1_2dbua")
+name = "Punch"
+description = "Punches for %d damage."
+sprite = ExtResource("2_v8r7k")
+numbers = Array[int]([5])
+action = 0
+card_flags = 0

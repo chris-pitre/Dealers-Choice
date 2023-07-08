@@ -12,6 +12,10 @@ func _ready() -> void:
 		_set_deck(deck)
 
 
+func get_compact_separation() -> int:
+	return floor((size.y - 96.0 * get_child_count()) / (get_child_count() - 1))
+
+
 func _set_deck(_deck: Deck) -> void:
 	deck = _deck
 	deck.added_card.connect(_deck_added_card)
@@ -23,6 +27,8 @@ func _set_deck(_deck: Deck) -> void:
 func _deck_added_card() -> void:
 	var new_card_display = CARD_DISPLAY.instantiate()
 	add_child(new_card_display)
+	new_card_display.load_card(deck.cards[deck.size() - 1])
+	set("theme_override_constants/v_separation", get_compact_separation())
 
 
 func _deck_removed_card(card_index: int) -> void:
