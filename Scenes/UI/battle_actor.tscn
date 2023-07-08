@@ -5,13 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://1xlmutoli5xt" path="res://Scenes/UI/healthbar.tscn" id="2_odalc"]
 [ext_resource type="Texture2D" uid="uid://b0c77a1jvfk1o" path="res://Assets/Art/UI/portraitback.png" id="4_gpiod"]
 
-[node name="BattleActor" type="VBoxContainer" node_paths=PackedStringArray("deck_display")]
+[node name="BattleActor" type="VBoxContainer" node_paths=PackedStringArray("deck_display", "healthbar")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 64.0
 grow_vertical = 2
 script = ExtResource("1_xwkth")
 deck_display = NodePath("DeckDisplay")
+healthbar = NodePath("Healthbar")
 
 [node name="Healthbar" parent="." instance=ExtResource("2_odalc")]
 layout_mode = 2
