@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://dsenegw68e33q"]
+
+[ext_resource type="Script" path="res://Scenes/Battle/battle_scene.gd" id="1_50g12"]
+[ext_resource type="Texture2D" uid="uid://d01gpbtxh4iuw" path="res://Assets/Art/UI/background.png" id="1_jhgs5"]
+[ext_resource type="Texture2D" uid="uid://c0osj8sprmywb" path="res://Assets/Art/UI/panel.png" id="3_3li0y"]
+[ext_resource type="PackedScene" uid="uid://ctgcxuni0gyb8" path="res://Scenes/Healthbar/healthbar.tscn" id="3_gwu48"]
+[ext_resource type="PackedScene" uid="uid://b72jaf4k40pe0" path="res://Scenes/Battle/battle_actor_deck.tscn" id="5_5dwhr"]
+
+[node name="BattleScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_50g12")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jhgs5")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("3_3li0y")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Healthbar" parent="MarginContainer" instance=ExtResource("3_gwu48")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Healthbar2" parent="MarginContainer" instance=ExtResource("3_gwu48")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+fill_mode = 1
+
+[node name="BattleActorDeck" parent="." instance=ExtResource("5_5dwhr")]
+layout_mode = 0
+offset_bottom = 320.0
+
+[node name="BattleActorDeck2" parent="." instance=ExtResource("5_5dwhr")]
+layout_mode = 0
+offset_left = 576.0
+offset_right = 640.0
+offset_bottom = 320.0
