@@ -17,10 +17,11 @@ func populate():
 			new_card.load_card(card)
 		shuffle_deck()
 
-func play_card(target):
+func play_card(target) -> GameCard:
 	var card = card_array.pop_front()
 	print(deck_name+" does!")
 	card.do_action(target)
+	return card
 
 func add_card(card: GameCard):
 	card_array.append(card)
