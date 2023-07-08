@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl7n7dtjesfee"]
+[gd_scene load_steps=6 format=3 uid="uid://dl7n7dtjesfee"]
 
 [ext_resource type="PackedScene" uid="uid://d0qb1xb2vinlw" path="res://Scenes/UI/deck_display.tscn" id="1_toyj5"]
 [ext_resource type="Script" path="res://Scenes/UI/battle_actor.gd" id="1_xwkth"]
 [ext_resource type="PackedScene" uid="uid://1xlmutoli5xt" path="res://Scenes/UI/healthbar.tscn" id="2_odalc"]
 [ext_resource type="Texture2D" uid="uid://b0c77a1jvfk1o" path="res://Assets/Art/UI/portraitback.png" id="4_gpiod"]
+[ext_resource type="PackedScene" uid="uid://s5qmuv01fj5v" path="res://Scenes/UI/statuses_bar.tscn" id="5_rsfcg"]
 
-[node name="BattleActor" type="VBoxContainer" node_paths=PackedStringArray("deck_display", "healthbar")]
+[node name="BattleActor" type="VBoxContainer" node_paths=PackedStringArray("deck_display", "healthbar", "statuses")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 64.0
@@ -13,6 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_xwkth")
 deck_display = NodePath("DeckDisplay")
 healthbar = NodePath("Healthbar")
+statuses = NodePath("StatusesBar")
 
 [node name="Healthbar" parent="." instance=ExtResource("2_odalc")]
 layout_mode = 2
@@ -27,3 +29,6 @@ layout_mode = 2
 size_flags_horizontal = 0
 texture = ExtResource("4_gpiod")
 stretch_mode = 2
+
+[node name="StatusesBar" parent="." instance=ExtResource("5_rsfcg")]
+layout_mode = 2

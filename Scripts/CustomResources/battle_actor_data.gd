@@ -5,3 +5,4 @@ class_name BattleActorData extends Resource
 @export var deck: Deck
 @export var health: int = 30
 @export var max_health: int = 30
+@export var shield: int = 0
