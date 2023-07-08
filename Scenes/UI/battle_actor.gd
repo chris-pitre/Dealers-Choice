@@ -10,6 +10,7 @@ var shield: int = 0
 @export var deck_display: DeckDisplay
 @export var data: BattleActorData
 @export var healthbar: Healthbar
+@export var is_player: bool = false
 
 func _ready() -> void:
 	deck_display.deck = data.deck
