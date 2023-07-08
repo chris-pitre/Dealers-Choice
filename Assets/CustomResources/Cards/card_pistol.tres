@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://dcjkphoc4vs5w"]
+
+[ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="1_ulc4u"]
+
+[resource]
+script = ExtResource("1_ulc4u")
+name = "TestCard"
+description = "This is a description."
+numbers = Array[int]([])
