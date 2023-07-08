@@ -1,18 +1,19 @@
 class_name Battle extends Control
 
 
-
-func _on_dealer_dealer_dealt() -> void:
-	pass # Replace with function body.
+var current_target_actor = battle_actor_left
 
 
-func _on_dealer_dealer_mark() -> void:
-	pass # Replace with function body.
+@export var battle_manager: BattleManager
+@export var dealer: Dealer
+@export var battle_actor_left: BattleActor
+@export var battle_actor_right: BattleActor
 
 
-func _on_dealer_dealer_shuffle() -> void:
-	pass # Replace with function body.
+func _ready() -> void:
+	battle_actor_left.battle_manager = battle_manager
+	battle_actor_right.battle_manager = battle_manager
 
 
-func _on_dealer_dealer_swap_back() -> void:
-	pass # Replace with function body.
+func _on_dealer_dealer_dealt(card: Card) -> void:
+	battle_actor_left.deck.add_card(card)

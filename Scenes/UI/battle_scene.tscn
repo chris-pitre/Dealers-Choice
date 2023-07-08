@@ -6,13 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://c1575apjrcn0e" path="res://Scenes/UI/dealer.tscn" id="3_fd2id"]
 [ext_resource type="PackedScene" uid="uid://dl7n7dtjesfee" path="res://Scenes/UI/battle_actor.tscn" id="4_u0fom"]
 
-[node name="Battle" type="Control"]
+[node name="Battle" type="Control" node_paths=PackedStringArray("battle_manager", "dealer", "battle_actor_left", "battle_actor_right")]
 custom_minimum_size = Vector2(640, 360)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_s35lp")
+battle_manager = NodePath("BattleManager")
+dealer = NodePath("BattleMargin/Dealer")
+battle_actor_left = NodePath("BattleMargin/BattleActor")
+battle_actor_right = NodePath("BattleMargin/BattleActor2")
 
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("1_6hl1r")
@@ -49,6 +53,3 @@ layout_mode = 2
 size_flags_horizontal = 8
 
 [connection signal="dealer_dealt" from="BattleMargin/Dealer" to="." method="_on_dealer_dealer_dealt"]
-[connection signal="dealer_mark" from="BattleMargin/Dealer" to="." method="_on_dealer_dealer_mark"]
-[connection signal="dealer_shuffle" from="BattleMargin/Dealer" to="." method="_on_dealer_dealer_shuffle"]
-[connection signal="dealer_swap_back" from="BattleMargin/Dealer" to="." method="_on_dealer_dealer_swap_back"]

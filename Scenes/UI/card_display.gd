@@ -7,6 +7,7 @@ var card
 @export var name_label: Label
 @export var sprite: TextureRect
 @export var description_label: Label
+@export var card_back: TextureRect
 
 
 func load_card(card: Card) -> void:
@@ -41,3 +42,12 @@ func anim_add_child(to: Control) -> void:
 	await tween.finished
 	new_display.show_sprite()
 	queue_free()
+
+
+func display_flags(flags: int) -> void:
+	if flags & Card.CardFlags.Flipped:
+		card_back.show()
+	else:
+		card_back.hide()
+	if flags & Card.CardFlags.Marked:
+		pass

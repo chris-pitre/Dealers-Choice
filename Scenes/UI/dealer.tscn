@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1575apjrcn0e"]
+[gd_scene load_steps=8 format=3 uid="uid://c1575apjrcn0e"]
 
 [ext_resource type="Script" path="res://Scenes/UI/dealer.gd" id="1_bu4e4"]
 [ext_resource type="PackedScene" uid="uid://dkfunjaop0ihl" path="res://Scenes/UI/card_display.tscn" id="2_6dano"]
 [ext_resource type="FontFile" uid="uid://dsll48v48qv42" path="res://Assets/EquipmentPro.ttf" id="3_7mxcj"]
 [ext_resource type="PackedScene" uid="uid://liqsb74hhv7j" path="res://Scenes/UI/dealer_action_button.tscn" id="4_2cqdc"]
+[ext_resource type="Texture2D" uid="uid://dpcoeltsgl2di" path="res://Assets/Art/UI/icon_moveback.png" id="5_2muf6"]
+[ext_resource type="Texture2D" uid="uid://d1x5hjr2y4p2r" path="res://Assets/Art/UI/icon_eye.png" id="6_gr54x"]
 
 [sub_resource type="FontVariation" id="FontVariation_muw3m"]
 base_font = ExtResource("3_7mxcj")
@@ -49,10 +51,21 @@ layout_mode = 2
 [node name="Mark" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
 layout_mode = 2
 
+[node name="Icon" parent="DealerActionBar/Mark" index="0"]
+texture = ExtResource("5_2muf6")
+
 [node name="SwapBack" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
+visible = false
 layout_mode = 2
+
+[node name="Icon" parent="DealerActionBar/SwapBack" index="0"]
+texture = ExtResource("6_gr54x")
 
 [connection signal="pressed" from="DealButton" to="." method="_on_deal_button_pressed"]
 [connection signal="pressed" from="DealerActionBar/Shuffle" to="." method="_on_shuffle_pressed"]
 [connection signal="pressed" from="DealerActionBar/Mark" to="." method="_on_mark_pressed"]
 [connection signal="pressed" from="DealerActionBar/SwapBack" to="." method="_on_swap_back_pressed"]
+
+[editable path="DealerActionBar/Shuffle"]
+[editable path="DealerActionBar/Mark"]
+[editable path="DealerActionBar/SwapBack"]
