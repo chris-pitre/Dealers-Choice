@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://wya088hs63jy"]
+
+[ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="1_maq7i"]
+[ext_resource type="Texture2D" uid="uid://dtgyqbrtmgc0j" path="res://Assets/Art/Cards/deflect.png" id="2_3tfsb"]
+
+[resource]
+script = ExtResource("1_maq7i")
+name = "Deflect"
+description = "Negates next Attack."
+sprite = ExtResource("2_3tfsb")
+numbers = Array[int]([999])
+action = 2
+card_flags = 0

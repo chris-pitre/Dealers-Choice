@@ -42,6 +42,10 @@ func _deck_removed_card(card_index: int) -> void:
 
 func _deck_moved_card(first_index: int, second_index: int) -> void:
 	move_child(get_child(first_index), second_index)
+	var i := 0
+	for child in get_children():
+		child.load_card(deck.cards[i])
+		i += 1
 	#add some anim here later or something
 
 func _deck_card_flags_modified(idx: int, new_flags: int) -> void:

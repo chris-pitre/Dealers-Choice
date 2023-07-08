@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Confuse" load_steps=2 format=3 uid="uid://ddcdjxahppjwv"]
+
+[ext_resource type="Script" path="res://Scripts/CustomCardBehavior/confuse.gd" id="1_106f6"]
+
+[resource]
+script = ExtResource("1_106f6")

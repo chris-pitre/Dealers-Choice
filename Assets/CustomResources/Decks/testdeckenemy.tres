@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="Deck" load_steps=4 format=3 uid="uid://bp0nr7bt2n8ih"]
+[gd_resource type="Resource" script_class="Deck" load_steps=5 format=3 uid="uid://bp0nr7bt2n8ih"]
 
 [ext_resource type="Resource" uid="uid://cbcbjmdjgkutr" path="res://Assets/CustomResources/Cards/card_defend.tres" id="2_38syl"]
+[ext_resource type="Resource" uid="uid://bm65ang0mjip3" path="res://Assets/CustomResources/Cards/card_confuse.tres" id="2_exfjj"]
 [ext_resource type="Resource" uid="uid://na5xcpcpmqr0" path="res://Assets/CustomResources/Cards/card_spikes.tres" id="2_h702u"]
 [ext_resource type="Script" path="res://Scripts/CustomResources/deck.gd" id="4_0cnvv"]
 
 [resource]
 script = ExtResource("4_0cnvv")
-cards = Array[Resource("res://Scripts/CustomResources/card.gd")]([ExtResource("2_38syl"), ExtResource("2_38syl"), ExtResource("2_38syl"), ExtResource("2_38syl"), ExtResource("2_38syl"), ExtResource("2_h702u")])
+cards = Array[Resource("res://Scripts/CustomResources/card.gd")]([ExtResource("2_38syl"), ExtResource("2_38syl"), ExtResource("2_38syl"), ExtResource("2_38syl"), ExtResource("2_exfjj"), ExtResource("2_h702u")])

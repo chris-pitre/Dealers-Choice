@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://8e3asvlv0af3"]
+
+[ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="1_asat8"]
+[ext_resource type="Texture2D" uid="uid://deesdm3lm42h3" path="res://Assets/Art/Cards/card_skill_strangle.png" id="2_0oj20"]
+
+[resource]
+script = ExtResource("1_asat8")
+name = "Strangle"
+description = "Attacks for %d and Rushes."
+sprite = ExtResource("2_0oj20")
+numbers = Array[int]([7])
+action = 5
+card_flags = 0

@@ -22,7 +22,7 @@ func play_cards(num: int, target: BattleActor) -> Array[Card]:
 		var card = data.deck.remove_top_card()
 		card_array.append(card)
 		card.play_card(self, target)
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.5).timeout
 	return card_array
 
 
