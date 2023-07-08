@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardTemplate" load_steps=3 format=3 uid="uid://bphhgb43bmp1b"]
+
+[ext_resource type="Script" path="res://Scripts/Cards/card_template.gd" id="1_vneti"]
+[ext_resource type="Texture2D" uid="uid://bdga08iynf27q" path="res://Assets/Art/Cards/card_attack_punch.png" id="2_duqae"]
+
+[resource]
+script = ExtResource("1_vneti")
+name = "Punch"
+description = "Deal %d damage."
+texture = ExtResource("2_duqae")
+action = 0
+numbers = Array[int]([5])
+rare = false

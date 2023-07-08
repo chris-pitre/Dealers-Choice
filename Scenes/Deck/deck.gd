@@ -1,6 +1,8 @@
 class_name Deck
 extends Node2D
 
+const CardScene = preload("res://Scenes/Cards/card.tscn")
+
 @export var base_deck: DeckTemplate
 @export var is_dealer_deck: bool
 
@@ -9,9 +11,9 @@ var num_cards: int = 0
 func _ready():
 	if base_deck:
 		for card in base_deck.cards:
-			var new_card = card.instantiate()
-			new_card.name = new_card.name+str(num_cards)
+			var new_card = CardScene.instantiate()
 			add_card(new_card)
+			new_card.load_card(card)
 		shuffle_deck()
 
 func play_card(target):

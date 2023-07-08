@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardTemplate" load_steps=3 format=3 uid="uid://46qlchvwp6f"]
+
+[ext_resource type="Script" path="res://Scripts/Cards/card_template.gd" id="1_osoq4"]
+[ext_resource type="Texture2D" uid="uid://3g2occ4tfh4r" path="res://Assets/Art/Cards/card_skill_heal.png" id="2_o1epn"]
+
+[resource]
+script = ExtResource("1_osoq4")
+name = "Heal"
+description = "Heals for %d health."
+texture = ExtResource("2_o1epn")
+action = 3
+numbers = Array[int]([5])
+rare = false

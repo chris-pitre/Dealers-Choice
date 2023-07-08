@@ -1,8 +1,9 @@
-class_name CardTemplate extends Resource
+class_name CardTemplate
+extends Resource
 
 @export var name: String = "TestCard"
-@export var sprite: Texture
+@export_multiline var description: String = "This is a test card. (loaded)"
+@export var texture: Texture
 @export var action: ActionData.ActionTypes
-@export var num_left: int = -1
-@export var num_right: int = -1
+@export var numbers: Array[int] = []
 @export var rare: bool = false

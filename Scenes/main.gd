@@ -50,9 +50,9 @@ func _on_action_phase_started():
 
 func do_turn():
 	if turn_queue.size() <= 0:
-		while true:
-			true == true
-	turn_manager.set_turns(turn_queue.pop_front())
+		print("help")
+	else:
+		turn_queue.pop_front()
 	
 func _on_player_draw_started():
 	deal_card($PlayerDeck)

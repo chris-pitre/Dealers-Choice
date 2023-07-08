@@ -1,23 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://pdp7race40id"]
+[gd_scene load_steps=5 format=3 uid="uid://c31xpy11m1tix"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_ecggc"]
-[ext_resource type="Script" path="res://Scenes/Deck/deck.gd" id="1_u1mqi"]
-[ext_resource type="Resource" uid="uid://b2vte6m1yml1v" path="res://Scripts/DeckTemplates/player_starting_deck.tres" id="4_bysq7"]
+[ext_resource type="PackedScene" uid="uid://dbea05vborkl3" path="res://Scenes/Deck/deck.tscn" id="2_u1uh4"]
+[ext_resource type="Resource" uid="uid://dri85xy4caf6" path="res://Scripts/DeckTemplates/playerdeck.tres" id="3_jp3ni"]
+[ext_resource type="Resource" uid="uid://bj45l0tyeo1ha" path="res://Scripts/DeckTemplates/enemydeck.tres" id="4_f4x3m"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ecggc")
 
-[node name="PlayerDeck" type="Node2D" parent="."]
-position = Vector2(39, 68)
-script = ExtResource("1_u1mqi")
-base_deck = ExtResource("4_bysq7")
+[node name="PlayerDeck" parent="." instance=ExtResource("2_u1uh4")]
+base_deck = ExtResource("3_jp3ni")
 
-[node name="EnemyDeck" type="Node2D" parent="."]
-position = Vector2(529, 125)
-script = ExtResource("1_u1mqi")
-base_deck = ExtResource("4_bysq7")
+[node name="EnemyDeck" parent="." instance=ExtResource("2_u1uh4")]
+base_deck = ExtResource("4_f4x3m")
 
-[node name="DealerDeck" type="Node2D" parent="."]
-position = Vector2(318, 254)
-script = ExtResource("1_u1mqi")
+[node name="DealerDeck" parent="." instance=ExtResource("2_u1uh4")]
 is_dealer_deck = true
