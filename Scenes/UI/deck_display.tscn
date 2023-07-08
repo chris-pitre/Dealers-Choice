@@ -4,4 +4,5 @@
 
 [node name="DeckDisplay" type="VFlowContainer"]
 offset_bottom = 360.0
+alignment = 1
 script = ExtResource("1_6pl34")

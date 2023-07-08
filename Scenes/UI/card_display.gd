@@ -8,6 +8,8 @@ var card
 @export var sprite: TextureRect
 @export var description_label: Label
 @export var card_back: TextureRect
+@export var hoverable: bool = true
+@export var hover_direction: Vector2 = Vector2.RIGHT * 64
 
 
 func load_card(card: Card) -> void:
@@ -51,3 +53,18 @@ func display_flags(flags: int) -> void:
 		card_back.hide()
 	if flags & Card.CardFlags.Marked:
 		pass
+
+
+func _on_mouse_entered() -> void:
+	if hoverable:
+		var tween = create_tween()
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.set_ease(Tween.EASE_OUT)
+		tween.tween_property(sprite, "position", hover_direction, 0.3)
+
+
+func _on_mouse_exited() -> void:
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.set_ease(Tween.EASE_OUT)
+	tween.tween_property(sprite, "position", Vector2.ZERO, 0.3)

@@ -3,35 +3,26 @@
 [ext_resource type="PackedScene" uid="uid://d0qb1xb2vinlw" path="res://Scenes/UI/deck_display.tscn" id="1_toyj5"]
 [ext_resource type="Script" path="res://Scenes/UI/battle_actor.gd" id="1_xwkth"]
 [ext_resource type="PackedScene" uid="uid://1xlmutoli5xt" path="res://Scenes/UI/healthbar.tscn" id="2_odalc"]
-[ext_resource type="Texture2D" uid="uid://cifssam12vayn" path="res://Assets/Art/Actors/Portraits/testportrait.png" id="3_tlixe"]
+[ext_resource type="Texture2D" uid="uid://b0c77a1jvfk1o" path="res://Assets/Art/UI/portraitback.png" id="4_gpiod"]
 
-[node name="BattleActor" type="Control" node_paths=PackedStringArray("deck_display")]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 3
-anchors_preset = 9
-anchor_bottom = 1.0
-grow_vertical = 2
-size_flags_horizontal = 0
-script = ExtResource("1_xwkth")
-deck_display = NodePath("VBoxContainer/DeckDisplay")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
+[node name="BattleActor" type="VBoxContainer" node_paths=PackedStringArray("deck_display")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 64.0
 grow_vertical = 2
+script = ExtResource("1_xwkth")
+deck_display = NodePath("DeckDisplay")
 
-[node name="Healthbar" parent="VBoxContainer" instance=ExtResource("2_odalc")]
+[node name="Healthbar" parent="." instance=ExtResource("2_odalc")]
 layout_mode = 2
 
-[node name="DeckDisplay" parent="VBoxContainer" instance=ExtResource("1_toyj5")]
+[node name="DeckDisplay" parent="." instance=ExtResource("1_toyj5")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("3_tlixe")
+texture = ExtResource("4_gpiod")
 stretch_mode = 2
