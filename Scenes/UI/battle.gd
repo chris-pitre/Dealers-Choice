@@ -39,6 +39,8 @@ func shuffle_decks_in() -> void:
 	var new_deck = Deck.new()
 	new_deck.cards.append_array(battle_actor_left.data.deck.cards)
 	new_deck.cards.append_array(battle_actor_right.data.deck.cards)
+	battle_actor_left.data.deck.cards.clear()
+	battle_actor_right.data.deck.cards.clear()
 	new_deck.shuffle_deck()
 	dealer.deck = new_deck
 

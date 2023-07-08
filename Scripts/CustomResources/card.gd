@@ -30,7 +30,7 @@ func play_card(user: BattleActor, target: BattleActor):
 			print("%s used %s for %d defense." % [user.data.name, name, numbers[0]])
 			user.defend(numbers[0])
 		Action.Rush:
-			print("Rushing")
+			print("%s rushed." % [user.data.name])
 			user.rush()
 		Action.Heal:
 			print("Healing for: ", numbers[0])
