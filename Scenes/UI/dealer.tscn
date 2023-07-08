@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1575apjrcn0e"]
+
+[ext_resource type="Script" path="res://Scenes/UI/dealer.gd" id="1_bu4e4"]
+[ext_resource type="PackedScene" uid="uid://dkfunjaop0ihl" path="res://Scenes/UI/card_display.tscn" id="2_6dano"]
+[ext_resource type="FontFile" uid="uid://dsll48v48qv42" path="res://Assets/EquipmentPro.ttf" id="3_7mxcj"]
+[ext_resource type="PackedScene" uid="uid://liqsb74hhv7j" path="res://Scenes/UI/dealer_action_button.tscn" id="4_2cqdc"]
+
+[sub_resource type="FontVariation" id="FontVariation_muw3m"]
+base_font = ExtResource("3_7mxcj")
+spacing_bottom = -4
+
+[node name="Dealer" type="VBoxContainer"]
+size_flags_horizontal = 4
+size_flags_vertical = 8
+alignment = 2
+script = ExtResource("1_bu4e4")
+
+[node name="TopCard" parent="." instance=ExtResource("2_6dano")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="NumCardsLeft" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_muw3m")
+text = "3 cards"
+horizontal_alignment = 1
+
+[node name="DealButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Deal"
+
+[node name="ActionDescription" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = SubResource("FontVariation_muw3m")
+text = "This shuffles the deck. (2 points)"
+horizontal_alignment = 1
+
+[node name="DealerActionBar" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Shuffle" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
+layout_mode = 2
+
+[node name="Mark" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
+layout_mode = 2
+
+[node name="SwapBack" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
+layout_mode = 2
+
+[connection signal="pressed" from="DealerActionBar/Shuffle" to="." method="_on_shuffle_pressed"]
+[connection signal="pressed" from="DealerActionBar/Mark" to="." method="_on_mark_pressed"]
+[connection signal="pressed" from="DealerActionBar/SwapBack" to="." method="_on_swap_back_pressed"]

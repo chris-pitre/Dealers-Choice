@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0wvh4jwf3mlh"]
+[gd_scene load_steps=5 format=3 uid="uid://d0wvh4jwf3mlh"]
 
 [ext_resource type="Script" path="res://Scripts/TurnManager/battle_manager.gd" id="1_yvwla"]
 [ext_resource type="Texture2D" uid="uid://d01gpbtxh4iuw" path="res://Assets/Art/UI/background.png" id="2_lckx0"]
-[ext_resource type="PackedScene" uid="uid://dkfunjaop0ihl" path="res://Scenes/UI/card_display.tscn" id="3_qw8va"]
-[ext_resource type="PackedScene" uid="uid://chq2r8j21xrpq" path="res://Scenes/UI/dealer_action_bar.tscn" id="4_5v3i3"]
+[ext_resource type="PackedScene" uid="uid://c1575apjrcn0e" path="res://Scenes/UI/dealer.tscn" id="3_fd2id"]
 [ext_resource type="PackedScene" uid="uid://dl7n7dtjesfee" path="res://Scenes/UI/battle_actor.tscn" id="5_mw2we"]
 
 [node name="BattleScene" type="Control"]
@@ -37,22 +36,8 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="DealerZone" type="VBoxContainer" parent="BattleMargin"]
+[node name="Dealer" parent="BattleMargin" instance=ExtResource("3_fd2id")]
 layout_mode = 2
-alignment = 2
-
-[node name="CardDisplay" parent="BattleMargin/DealerZone" instance=ExtResource("3_qw8va")]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Button" type="Button" parent="BattleMargin/DealerZone"]
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Deal"
-
-[node name="DealerActionBar" parent="BattleMargin/DealerZone" instance=ExtResource("4_5v3i3")]
-layout_mode = 2
-size_flags_vertical = 8
 
 [node name="BattleActor" parent="BattleMargin" instance=ExtResource("5_mw2we")]
 layout_mode = 2

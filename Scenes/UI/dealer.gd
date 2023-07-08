@@ -1,4 +1,4 @@
-class_name DealerActionBar extends HBoxContainer
+extends VBoxContainer
 
 
 signal dealer_shuffle

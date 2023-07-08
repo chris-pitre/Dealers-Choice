@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkfunjaop0ihl"]
+[gd_scene load_steps=5 format=3 uid="uid://dkfunjaop0ihl"]
 
 [ext_resource type="Texture2D" uid="uid://7tacfxya1l4s" path="res://Assets/Art/Cards/card_attack_pistol.png" id="1_7lb1v"]
-[ext_resource type="FontFile" uid="uid://k4vfqvyjptfn" path="res://Assets/m3x6.ttf" id="2_oecs1"]
+[ext_resource type="Script" path="res://Scenes/UI/card_display.gd" id="1_wh8jv"]
+[ext_resource type="FontFile" uid="uid://bb7vabmkkkg" path="res://Assets/mago2.ttf" id="4_45hmn"]
 
-[node name="CardDisplay" type="Control"]
+[sub_resource type="FontVariation" id="FontVariation_igwuk"]
+base_font = ExtResource("4_45hmn")
+spacing_top = -5
+spacing_bottom = -4
+
+[node name="CardDisplay" type="Control" node_paths=PackedStringArray("name_label", "sprite", "description_label")]
 custom_minimum_size = Vector2(64, 96)
 layout_mode = 3
 anchors_preset = 0
@@ -11,15 +17,33 @@ offset_right = 64.0
 offset_bottom = 96.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
+script = ExtResource("1_wh8jv")
+name_label = NodePath("Name")
+sprite = NodePath("Sprite")
+description_label = NodePath("Description")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Sprite" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_7lb1v")
 
-[node name="Label" type="Label" parent="."]
+[node name="Name" type="Label" parent="."]
 layout_mode = 0
 offset_right = 64.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("2_oecs1")
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0.309804, 0.203922, 0.184314, 1)
+theme_override_fonts/font = ExtResource("4_45hmn")
+text = "TestCard"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 66.0
+offset_right = 61.0
+offset_bottom = 94.0
+theme_override_colors/font_color = Color(0.309804, 0.203922, 0.184314, 1)
+theme_override_fonts/font = SubResource("FontVariation_igwuk")
+text = "This does 3 damage."
+autowrap_mode = 2
