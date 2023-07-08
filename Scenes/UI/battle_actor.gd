@@ -1,15 +1,16 @@
 class_name BattleActor extends VBoxContainer
 
-signal actor_rush_start(actor: BattleActor)
-signal actor_shield_changed(actor: BattleActor, old_value: int, new_value: int)
-signal actor_health_changed(actor: BattleActor, old_value: int, new_value: int)
-signal actor_death(actor: BattleActor)
+enum STATUSES{
+	DEFENSE,
+}
 
-var shield: int = 0
+signal actor_rush_start(actor: BattleActor)
+signal actor_death(actor: BattleActor)
 
 @export var deck_display: DeckDisplay
 @export var data: BattleActorData
 @export var healthbar: Healthbar
+@export var statuses: StatusBar
 @export var is_player: bool = false
 
 func _ready() -> void:
@@ -27,37 +28,32 @@ func play_cards(num: int, target: BattleActor) -> Array[Card]:
 
 
 func damage(x: int) -> void:
-	var old_health = data.health
-	var old_shield = shield
-	if shield > 0:
-		shield -= x
-		if shield < 0:
-			data.health += shield
+	if data.shield > 0:
+		data.shield -= x
+		if data.shield < 0:
+			data.health += data.shield
 	else:
 		data.health -= x
 	data.health = clamp(data.health, 0, data.max_health)
-	shield = 0
-	if old_shield != shield:
-		actor_shield_changed.emit(self, old_shield, shield)
-	if old_health != data.health:
-		actor_health_changed.emit(self, old_health, data.health)
+	data.shield = 0
 	if data.health == 0:
 		actor_death.emit(self)
 	healthbar.health = data.health
 	healthbar.max_health = data.max_health
+	update_statuses()
 
 func defend(x: int) -> void:
-	var old_shield = shield
-	shield += x
-	actor_shield_changed.emit(self, old_shield, shield)
+	data.shield += x
+	update_statuses()
 
 func heal(x: int) -> void:
-	var old_health = data.health
 	data.health += x
 	data.health = clamp(data.health, 0, data.max_health)
-	actor_health_changed.emit(self, old_health, data.health)
 	healthbar.health = data.health
 	healthbar.max_health = data.max_health
 
 func rush() -> void:
 	actor_rush_start.emit(self)
+
+func update_statuses() -> void:
+	statuses.shield = data.shield

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Deck" load_steps=4 format=3 uid="uid://bp0nr7bt2n8ih"]
 
 [ext_resource type="Resource" uid="uid://cbcbjmdjgkutr" path="res://Assets/CustomResources/Cards/card_defend.tres" id="2_38syl"]
-[ext_resource type="Resource" uid="uid://na5xcpcpmqr0" path="res://Assets/CustomResources/Cards/card_spikes.tres" id="2_h702u"]
+[ext_resource type="Resource" path="res://Assets/CustomResources/Cards/card_spikes.tres" id="2_h702u"]
 [ext_resource type="Script" path="res://Scripts/CustomResources/deck.gd" id="4_0cnvv"]
 
 [resource]

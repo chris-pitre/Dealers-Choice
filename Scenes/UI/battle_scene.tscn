@@ -91,6 +91,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 data = ExtResource("6_rh0e4")
+is_player = true
 
 [node name="DeckDisplay" parent="BattleMargin/BattleActor" index="1"]
 hover_direction = Vector2(64, 0)
