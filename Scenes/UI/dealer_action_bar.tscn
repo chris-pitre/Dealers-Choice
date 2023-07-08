@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://chq2r8j21xrpq"]
+
+[ext_resource type="PackedScene" uid="uid://liqsb74hhv7j" path="res://Scenes/UI/dealer_action_button.tscn" id="1_8fgnp"]
+[ext_resource type="Script" path="res://Scenes/UI/dealer_action_bar.gd" id="1_8hvwi"]
+[ext_resource type="Texture2D" uid="uid://d1x5hjr2y4p2r" path="res://Assets/Art/UI/icon_eye.png" id="3_uwugq"]
+[ext_resource type="Texture2D" uid="uid://dpcoeltsgl2di" path="res://Assets/Art/UI/icon_moveback.png" id="4_cwf5k"]
+
+[node name="DealerActionBar" type="HBoxContainer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+script = ExtResource("1_8hvwi")
+
+[node name="Shuffle" parent="." instance=ExtResource("1_8fgnp")]
+layout_mode = 2
+
+[node name="SwapBack" parent="." instance=ExtResource("1_8fgnp")]
+layout_mode = 2
+
+[node name="Icon" parent="SwapBack" index="0"]
+texture = ExtResource("3_uwugq")
+
+[node name="Mark" parent="." instance=ExtResource("1_8fgnp")]
+layout_mode = 2
+
+[node name="Icon" parent="Mark" index="0"]
+texture = ExtResource("4_cwf5k")
+
+[connection signal="pressed" from="Shuffle" to="." method="_on_shuffle_pressed"]
+[connection signal="pressed" from="SwapBack" to="." method="_on_swap_back_pressed"]
+[connection signal="pressed" from="Mark" to="." method="_on_mark_pressed"]
+
+[editable path="Shuffle"]
+[editable path="SwapBack"]
+[editable path="Mark"]

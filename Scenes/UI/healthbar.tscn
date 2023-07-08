@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://1xlmutoli5xt"]
+
+[ext_resource type="Script" path="res://Scenes/UI/healthbar.gd" id="1_5kimx"]
+[ext_resource type="Texture2D" uid="uid://ceo6bdykjucph" path="res://Assets/Art/UI/health_under.png" id="2_o6fri"]
+[ext_resource type="Texture2D" uid="uid://bwl2jryy70uts" path="res://Assets/Art/UI/health_progress.png" id="3_nretp"]
+
+[node name="Healthbar" type="TextureProgressBar"]
+value = 100.0
+texture_under = ExtResource("2_o6fri")
+texture_progress = ExtResource("3_nretp")
+script = ExtResource("1_5kimx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100/100"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkfunjaop0ihl"]
+
+[ext_resource type="Texture2D" uid="uid://7tacfxya1l4s" path="res://Assets/Art/Cards/card_attack_pistol.png" id="1_7lb1v"]
+[ext_resource type="FontFile" uid="uid://k4vfqvyjptfn" path="res://Assets/m3x6.ttf" id="2_oecs1"]
+
+[node name="CardDisplay" type="Control"]
+custom_minimum_size = Vector2(64, 96)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 96.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_7lb1v")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_oecs1")

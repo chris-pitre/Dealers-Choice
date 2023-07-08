@@ -1,9 +1,0 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cembnguo3bee7"]
-
-[ext_resource type="FontFile" uid="uid://u2m4ld1x6b2q" path="res://Assets/EquipmentPro.ttf" id="1_1v3ik"]
-
-[sub_resource type="FontVariation" id="FontVariation_4ig6v"]
-base_font = ExtResource("1_1v3ik")
-
-[resource]
-default_font = SubResource("FontVariation_4ig6v")

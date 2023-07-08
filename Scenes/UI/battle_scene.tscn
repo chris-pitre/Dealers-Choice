@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0wvh4jwf3mlh"]
+
+[ext_resource type="Script" path="res://Scripts/TurnManager/battle_manager.gd" id="1_yvwla"]
+[ext_resource type="Texture2D" uid="uid://d01gpbtxh4iuw" path="res://Assets/Art/UI/background.png" id="2_lckx0"]
+[ext_resource type="PackedScene" uid="uid://dkfunjaop0ihl" path="res://Scenes/UI/card_display.tscn" id="3_qw8va"]
+[ext_resource type="PackedScene" uid="uid://chq2r8j21xrpq" path="res://Scenes/UI/dealer_action_bar.tscn" id="4_5v3i3"]
+[ext_resource type="PackedScene" uid="uid://dl7n7dtjesfee" path="res://Scenes/UI/battle_actor.tscn" id="5_mw2we"]
+
+[node name="BattleScene" type="Control"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BattleManager" type="Node" parent="."]
+script = ExtResource("1_yvwla")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_lckx0")
+
+[node name="BattleMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="DealerZone" type="VBoxContainer" parent="BattleMargin"]
+layout_mode = 2
+alignment = 2
+
+[node name="CardDisplay" parent="BattleMargin/DealerZone" instance=ExtResource("3_qw8va")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="BattleMargin/DealerZone"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Deal"
+
+[node name="DealerActionBar" parent="BattleMargin/DealerZone" instance=ExtResource("4_5v3i3")]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="BattleActor" parent="BattleMargin" instance=ExtResource("5_mw2we")]
+layout_mode = 2
+
+[node name="BattleActor2" parent="BattleMargin" instance=ExtResource("5_mw2we")]
+layout_mode = 2
+size_flags_horizontal = 8
