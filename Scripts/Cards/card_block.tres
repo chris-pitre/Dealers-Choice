@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_exmwb")
 name = "Defend"
-description = "Avoids the next hit."
+description = "Blocks %d damage."
 texture = ExtResource("2_73goo")
 action = 1
-numbers = Array[int]([])
+numbers = Array[int]([5])
 rare = false

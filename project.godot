@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ActionData="*res://Scripts/action_data.gd"
+QueueManager="*res://Scripts/QueueManager/queue_manager.gd"
 
 [display]
 

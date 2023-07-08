@@ -1,12 +1,14 @@
 extends Node
 
-@export var player_deck: Deck
-@export var enemy_deck: Deck
+var player_deck: Deck
+var enemy_deck: Deck
 @export var dealer_deck: Deck
 @export var discard_deck: Deck
 
 var turn_manager = preload("res://Scripts/TurnManager/turn_manager.tres")
 
+var player: BattleActor
+var enemy: BattleActor
 var max_cards_dealt: int
 var cards_to_deal: int
 var turn_queue: Array[TurnManager.Turns]
@@ -29,11 +31,21 @@ func _ready():
 	
 	$DealerManager.deal_card.connect(_on_deal_card)
 	
+	get_actors()
+	
 	player_deck.populate()
 	enemy_deck.populate()
 	
 	print("Starting Start Phase!")
 	turn_manager.set_phase(TurnManager.Phases.StartPhase)
+	
+func get_actors():
+	player_deck = $Battlers/Player.deck
+	enemy_deck = $Battlers/Enemy.deck
+	player = $Battlers/Player
+	enemy = $Battlers/Enemy
+	player.health = player.health if player.health != -1 else player.max_health
+	enemy.health = enemy.max_health
 
 func _on_start_phase_started():
 	print("Collecting Cards")
@@ -60,16 +72,16 @@ func _on_action_phase_started():
 	$DealerManager.is_draw_phase = false
 	for i in range(player_deck.card_array.size() + enemy_deck.card_array.size()):
 		if i % 2 == 0:
-			turn_queue.append(TurnManager.Turns.Player)
+			QueueManager.add_turn(TurnManager.Turns.Player)
 		else:
-			turn_queue.append(TurnManager.Turns.Enemy)
+			QueueManager.add_turn(TurnManager.Turns.Enemy)
 	do_turn()
 
 func do_turn():
-	if turn_queue.size() <= 0:
+	if QueueManager.get_size() <= 0:
 		turn_manager.set_phase(TurnManager.Phases.DrawPhase)
 	else:
-		turn_manager.set_turns(turn_queue.pop_front())
+		turn_manager.set_turns(QueueManager.get_turn())
 	
 func _on_player_draw_started():
 	$DealerManager.is_player_draw = true
@@ -104,11 +116,13 @@ func _on_deal_card(is_player: bool):
 	emit_signal("deal_finished")
 	
 func _on_player_turn_started():
-	var discarded_card = player_deck.play_card(null)
+	print("Player Health: "+str(player.health))
+	var discarded_card = player_deck.play_card(player, enemy)
 	discard_deck.card_array.append(discarded_card)
 	do_turn()
 
 func _on_enemy_turn_started():
-	var discarded_card = enemy_deck.play_card(null)
+	print("Enemy Health: "+str(enemy.health))
+	var discarded_card = enemy_deck.play_card(enemy, player)
 	discard_deck.card_array.append(discarded_card)
 	do_turn()

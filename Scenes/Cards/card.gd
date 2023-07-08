@@ -24,5 +24,5 @@ func load_card(template: CardTemplate):
 	if template.numbers.size() >= 1:
 		action_component.value = template.numbers[0]
 
-func do_action(target):
-	action_component.do_action(target)
+func do_action(actor: BattleActor, target: BattleActor) -> void:
+	action_component.do_action(actor, target)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c31xpy11m1tix"]
+[gd_scene load_steps=9 format=3 uid="uid://c31xpy11m1tix"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_ecggc"]
 [ext_resource type="Resource" uid="uid://doifjcb78u8k1" path="res://Scripts/Decks/player_deck.tres" id="2_8bcy5"]
@@ -7,13 +7,25 @@
 [ext_resource type="Resource" uid="uid://cflbwnhw5j4dr" path="res://Scripts/Decks/discard_deck.tres" id="5_ej8yj"]
 [ext_resource type="PackedScene" uid="uid://beujkvbcs6tpe" path="res://Scenes/Dealer/dealer_manager.tscn" id="5_l3w40"]
 [ext_resource type="Script" path="res://Scenes/Dealer/dealer_manager.gd" id="6_rsawk"]
+[ext_resource type="Script" path="res://Scenes/Actors/battle_actor.gd" id="8_b6wr5"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ecggc")
-player_deck = ExtResource("2_8bcy5")
-enemy_deck = ExtResource("3_g2hdh")
 dealer_deck = ExtResource("4_ick8e")
 discard_deck = ExtResource("5_ej8yj")
 
 [node name="DealerManager" parent="." instance=ExtResource("5_l3w40")]
 script = ExtResource("6_rsawk")
+
+[node name="Battlers" type="Node2D" parent="."]
+
+[node name="Player" type="Node2D" parent="Battlers"]
+script = ExtResource("8_b6wr5")
+actor_name = "Player"
+deck = ExtResource("2_8bcy5")
+
+[node name="Enemy" type="Node2D" parent="Battlers"]
+script = ExtResource("8_b6wr5")
+actor_name = "Enemy"
+max_health = 10
+deck = ExtResource("3_g2hdh")

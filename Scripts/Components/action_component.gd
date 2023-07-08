@@ -4,18 +4,18 @@ extends Node
 @export var value: int
 @export var action: ActionData.ActionTypes
 
-func do_action(target) -> void:
+func do_action(actor: BattleActor, target: BattleActor) -> void:
 	match action:
 		ActionData.ActionTypes.ATTACK:
 			print("Attacked for: "+str(value))
-			#do an attack
+			target.take_damage(value)
 		ActionData.ActionTypes.DEFEND:
 			print("Defended for: "+str(value))
-			#do a defend
+			actor.gain_shield(value)
 		ActionData.ActionTypes.RUSH:
-			print("Rushed for: "+str(value))
-			#do a rush
+			print("Rushed!")
+			QueueManager.rush(actor)
 		ActionData.ActionTypes.HEAL:
 			print("Healed for: "+str(value))
-			#do a heal
+			actor.heal_damage(value)
 			
