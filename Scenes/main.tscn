@@ -1,18 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c31xpy11m1tix"]
+[gd_scene load_steps=7 format=3 uid="uid://c31xpy11m1tix"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_ecggc"]
-[ext_resource type="PackedScene" uid="uid://dbea05vborkl3" path="res://Scenes/Deck/deck.tscn" id="2_u1uh4"]
-[ext_resource type="Resource" uid="uid://dri85xy4caf6" path="res://Scripts/DeckTemplates/playerdeck.tres" id="3_jp3ni"]
-[ext_resource type="Resource" uid="uid://bj45l0tyeo1ha" path="res://Scripts/DeckTemplates/enemydeck.tres" id="4_f4x3m"]
+[ext_resource type="Resource" uid="uid://doifjcb78u8k1" path="res://Scripts/Decks/player_deck.tres" id="2_8bcy5"]
+[ext_resource type="Resource" uid="uid://b4jqdi7mrg3d2" path="res://Scripts/Decks/enemy_deck.tres" id="3_g2hdh"]
+[ext_resource type="Resource" uid="uid://b7tmq005vghvx" path="res://Scripts/Decks/dealer_deck.tres" id="4_ick8e"]
+[ext_resource type="PackedScene" uid="uid://beujkvbcs6tpe" path="res://Scenes/Dealer/dealer_manager.tscn" id="5_l3w40"]
+[ext_resource type="Script" path="res://Scenes/Dealer/dealer_manager.gd" id="6_rsawk"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ecggc")
+player_deck = ExtResource("2_8bcy5")
+enemy_deck = ExtResource("3_g2hdh")
+dealer_deck = ExtResource("4_ick8e")
 
-[node name="PlayerDeck" parent="." instance=ExtResource("2_u1uh4")]
-base_deck = ExtResource("3_jp3ni")
-
-[node name="EnemyDeck" parent="." instance=ExtResource("2_u1uh4")]
-base_deck = ExtResource("4_f4x3m")
-
-[node name="DealerDeck" parent="." instance=ExtResource("2_u1uh4")]
-is_dealer_deck = true
+[node name="DealerManager" parent="." instance=ExtResource("5_l3w40")]
+script = ExtResource("6_rsawk")
