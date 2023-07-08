@@ -3,9 +3,11 @@ extends Node
 @export var player_deck: Deck
 @export var enemy_deck: Deck
 @export var dealer_deck: Deck
+@export var discard_deck: Deck
 
 var turn_manager = preload("res://Scripts/TurnManager/turn_manager.tres")
 
+var max_cards_dealt: int
 var cards_to_deal: int
 var turn_queue: Array[TurnManager.Turns]
 
@@ -43,12 +45,14 @@ func _on_start_phase_started():
 		dealer_deck.card_array.append(card)
 	dealer_deck.shuffle_deck()
 	
+	max_cards_dealt = dealer_deck.card_array.size()
+	
 	print("Starting Draw Phase")
 	turn_manager.set_phase(TurnManager.Phases.DrawPhase)
 	
 func _on_draw_phase_started():
 	$DealerManager.is_draw_phase = true
-	cards_to_deal = floor(dealer_deck.card_array.size()/3)
+	cards_to_deal = floor(max_cards_dealt/3)
 	print("Cards to deal: "+str(cards_to_deal))
 	turn_manager.set_draws(TurnManager.Draws.Player)
 	
@@ -63,7 +67,7 @@ func _on_action_phase_started():
 
 func do_turn():
 	if turn_queue.size() <= 0:
-		print("help")
+		turn_manager.set_phase(TurnManager.Phases.DrawPhase)
 	else:
 		turn_manager.set_turns(turn_queue.pop_front())
 	
@@ -85,6 +89,10 @@ func _on_enemy_draw_started():
 		turn_manager.set_draws(TurnManager.Draws.Player)
 	
 func _on_deal_card(is_player: bool):
+	if dealer_deck.card_array.size() < cards_to_deal:
+		for i in discard_deck.card_array.size():
+			dealer_deck.card_array.append(discard_deck.card_array.pop_front())
+		dealer_deck.shuffle_deck()
 	var top_card = dealer_deck.card_array[0]
 	dealer_deck.delete_card(top_card)
 	if is_player:
@@ -96,9 +104,11 @@ func _on_deal_card(is_player: bool):
 	emit_signal("deal_finished")
 	
 func _on_player_turn_started():
-	player_deck.play_card(null)
+	var discarded_card = player_deck.play_card(null)
+	discard_deck.card_array.append(discarded_card)
 	do_turn()
 
 func _on_enemy_turn_started():
-	enemy_deck.play_card(null)
+	var discarded_card = enemy_deck.play_card(null)
+	discard_deck.card_array.append(discarded_card)
 	do_turn()
