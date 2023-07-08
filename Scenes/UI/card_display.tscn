@@ -26,8 +26,9 @@ card_back = NodePath("Sprite/CardBack")
 
 [node name="Sprite" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 64.0
+offset_bottom = 96.0
+pivot_offset = Vector2(32, 48)
 mouse_filter = 2
 texture = ExtResource("1_7lb1v")
 

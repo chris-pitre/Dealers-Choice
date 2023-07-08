@@ -1,7 +1,9 @@
 class_name CardDisplay extends Control
 
 
-var card
+var card: Card
+var flipped: bool = false
+var flipping = false
 
 
 @export var name_label: Label
@@ -53,6 +55,21 @@ func display_flags(flags: int) -> void:
 		card_back.hide()
 	if flags & Card.CardFlags.Marked:
 		pass
+
+
+func flip_card() -> void:
+	if not flipping:
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN)
+		tween.set_trans(Tween.TRANS_QUAD)
+		tween.tween_property(sprite, "scale", Vector2(0, 1), 0.2)
+		await tween.finished
+		if not flipped:
+			card_back.show()
+		else:
+			card_back.hide()
+		tween.tween_property(sprite, "scale", Vector2(1, 1), 0.2)
+		flipped = not flipped
 
 
 func _on_mouse_entered() -> void:

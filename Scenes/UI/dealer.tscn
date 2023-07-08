@@ -51,23 +51,23 @@ alignment = 1
 [node name="Shuffle" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
 layout_mode = 2
 
-[node name="Mark" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
-layout_mode = 2
-
-[node name="Icon" parent="DealerActionBar/Mark" index="0"]
-texture = ExtResource("5_2muf6")
-
 [node name="SwapBack" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
 layout_mode = 2
 
 [node name="Icon" parent="DealerActionBar/SwapBack" index="0"]
+texture = ExtResource("5_2muf6")
+
+[node name="Mark" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
+layout_mode = 2
+
+[node name="Icon" parent="DealerActionBar/Mark" index="0"]
 texture = ExtResource("6_gr54x")
 
 [connection signal="pressed" from="DealButton" to="." method="_on_deal_button_pressed"]
 [connection signal="pressed" from="DealerActionBar/Shuffle" to="." method="_on_shuffle_pressed"]
-[connection signal="pressed" from="DealerActionBar/Mark" to="." method="_on_mark_pressed"]
 [connection signal="pressed" from="DealerActionBar/SwapBack" to="." method="_on_swap_back_pressed"]
+[connection signal="pressed" from="DealerActionBar/Mark" to="." method="_on_mark_pressed"]
 
 [editable path="DealerActionBar/Shuffle"]
-[editable path="DealerActionBar/Mark"]
 [editable path="DealerActionBar/SwapBack"]
+[editable path="DealerActionBar/Mark"]

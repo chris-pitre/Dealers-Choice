@@ -17,7 +17,7 @@ func _on_shuffle_pressed() -> void:
 
 
 func _on_swap_back_pressed() -> void:
-	deck.move_card(0, deck.size())
+	deck.move_card(0, deck.size() - 1)
 	top_card.load_card(deck.cards[0])
 
 
