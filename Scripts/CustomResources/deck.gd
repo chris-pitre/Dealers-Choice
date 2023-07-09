@@ -4,6 +4,7 @@ signal added_card()
 signal removed_card(card_index: int)
 signal moved_card(first_index: int, second_index: int)
 signal combined()
+signal shuffled()
 signal card_flags_modified(idx: int, new_flags: int)
 
 @export var cards: Array[Card] = []
@@ -30,13 +31,16 @@ func move_card(first_index: int, second_index: int) -> void:
 
 func combine(deck: Deck) -> Deck:
 	cards.append_array(deck.cards)
+	combined.emit()
 	return deck
 
 func shuffle_deck() -> void:
 	AudioSingleton.play_sfx(load("res://Assets/SFX/shuffle.wav"))
-	for i in range(cards.size()):
-		var random_index = randi() % cards.size()
-		move_card(i, random_index)
+#	for i in range(cards.size()):
+#		var random_index = randi() % cards.size()
+#		move_card(i, random_index)
+	cards.shuffle()
+	shuffled.emit()
 	
 func size() -> int:
 	return cards.size()

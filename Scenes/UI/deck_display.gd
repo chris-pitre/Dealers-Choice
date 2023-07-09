@@ -33,6 +33,11 @@ func add_card(card: Card) -> CardDisplay:
 		set("theme_override_constants/h_separation", get_compact_separation())
 	return new_card_display
 
+func reinit_deck() -> void:
+	for child in get_children():
+		child.queue_free()
+	for card in deck.cards:
+		add_card(card)
 
 func _set_deck(_deck: Deck) -> void:
 	deck = _deck
@@ -40,6 +45,7 @@ func _set_deck(_deck: Deck) -> void:
 	deck.removed_card.connect(_deck_removed_card)
 	deck.moved_card.connect(_deck_moved_card)
 	deck.combined.connect(_deck_combined)
+	deck.shuffled.connect(_deck_shuffled)
 	deck.card_flags_modified.connect(_deck_card_flags_modified)
 
 func _deck_added_card() -> void:
@@ -62,7 +68,7 @@ func _deck_card_flags_modified(idx: int, new_flags: int) -> void:
 	get_child(idx).display_flags(new_flags)
 
 func _deck_combined() -> void:
-	for child in get_children():
-		child.queue_free()
-	for card in deck.cards:
-		add_card(card)
+	reinit_deck()
+
+func _deck_shuffled() -> void:
+	reinit_deck()
