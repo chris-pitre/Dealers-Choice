@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1575apjrcn0e"]
+[gd_scene load_steps=11 format=3 uid="uid://c1575apjrcn0e"]
 
 [ext_resource type="Script" path="res://Scenes/UI/dealer.gd" id="1_bu4e4"]
 [ext_resource type="PackedScene" uid="uid://dkfunjaop0ihl" path="res://Scenes/UI/card_display.tscn" id="2_6dano"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dpcoeltsgl2di" path="res://Assets/Art/UI/icon_moveback.png" id="5_2muf6"]
 [ext_resource type="Texture2D" uid="uid://d1x5hjr2y4p2r" path="res://Assets/Art/UI/icon_eye.png" id="6_gr54x"]
 [ext_resource type="Texture2D" uid="uid://bkdw55r7bomj8" path="res://Assets/Art/UI/discard.png" id="7_ns3ah"]
-[ext_resource type="Texture2D" uid="uid://c06c2hcdr4vd3" path="res://Assets/Art/UI/pokerchip.png" id="8_ngqwr"]
 
 [sub_resource type="FontVariation" id="FontVariation_muw3m"]
 base_font = ExtResource("3_7mxcj")
@@ -43,7 +42,7 @@ expand_margin_left = 2.0
 expand_margin_right = 2.0
 anti_aliasing = false
 
-[node name="Dealer" type="VBoxContainer" node_paths=PackedStringArray("top_card", "num_cards_left_label", "action_description", "point_label")]
+[node name="Dealer" type="VBoxContainer" node_paths=PackedStringArray("top_card", "num_cards_left_label", "action_description")]
 size_flags_horizontal = 4
 size_flags_vertical = 8
 alignment = 2
@@ -51,7 +50,6 @@ script = ExtResource("1_bu4e4")
 top_card = NodePath("TopCard")
 num_cards_left_label = NodePath("NumCardsLeft")
 action_description = NodePath("ActionDescription")
-point_label = NodePath("DealerActionBar/Points/PointsLabel")
 
 [node name="TopCard" parent="." instance=ExtResource("2_6dano")]
 layout_mode = 2
@@ -83,7 +81,6 @@ custom_minimum_size = Vector2(256, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_muw3m")
-text = "This shuffles the deck. (2 points)"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -113,30 +110,6 @@ layout_mode = 2
 [node name="Icon" parent="DealerActionBar/Discard" index="0"]
 texture = ExtResource("7_ns3ah")
 
-[node name="Points" type="TextureRect" parent="DealerActionBar"]
-layout_mode = 2
-texture = ExtResource("8_ngqwr")
-expand_mode = 2
-
-[node name="PointsLabel" type="Label" parent="DealerActionBar/Points"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("3_7mxcj")
-text = "20
-"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [connection signal="pressed" from="DealButton" to="." method="_on_deal_button_pressed"]
 [connection signal="mouse_entered" from="DealerActionBar/Shuffle" to="." method="_on_shuffle_mouse_entered"]
 [connection signal="mouse_exited" from="DealerActionBar/Shuffle" to="." method="_on_shuffle_mouse_exited"]
@@ -147,9 +120,6 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="DealerActionBar/Mark" to="." method="_on_mark_mouse_entered"]
 [connection signal="mouse_exited" from="DealerActionBar/Mark" to="." method="_on_mark_mouse_exited"]
 [connection signal="pressed" from="DealerActionBar/Mark" to="." method="_on_mark_pressed"]
-[connection signal="mouse_entered" from="DealerActionBar/Discard" to="." method="_on_discard_mouse_entered"]
-[connection signal="mouse_exited" from="DealerActionBar/Discard" to="." method="_on_discard_mouse_exited"]
-[connection signal="pressed" from="DealerActionBar/Discard" to="." method="_on_discard_pressed"]
 
 [editable path="DealerActionBar/Shuffle"]
 [editable path="DealerActionBar/SwapBack"]
