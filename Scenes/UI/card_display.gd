@@ -15,7 +15,7 @@ var angular_velocity: float = 0.0
 @export var card_back: TextureRect
 @export var hoverable: bool = true
 @export var hover_direction: Vector2 = Vector2.RIGHT * 64
-
+@export var mark: TextureRect
 
 func _physics_process(delta: float) -> void:
 	global_position += velocity * delta
@@ -26,6 +26,8 @@ func load_card(card: Card) -> void:
 	name_label.text = card.name
 	sprite.texture = card.sprite
 	description_label.text = card.description % card.numbers
+	if card.card_flags & Card.CardFlags.Marked:
+		mark.visible = true
 
 func show_sprite() -> void:
 	sprite.modulate = Color.WHITE

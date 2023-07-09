@@ -11,5 +11,6 @@ description = "Fires a pistol for %d damage."
 sprite = ExtResource("2_delfn")
 numbers = Array[int]([10])
 sound_effect = ExtResource("2_m3xpw")
+volume_db = -5
 action = 1
 card_flags = 0

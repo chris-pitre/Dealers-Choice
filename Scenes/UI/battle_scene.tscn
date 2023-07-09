@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d0wvh4jwf3mlh"]
+[gd_scene load_steps=22 format=3 uid="uid://d0wvh4jwf3mlh"]
 
 [ext_resource type="Script" path="res://Scripts/TurnManager/battle_manager.gd" id="1_6hl1r"]
 [ext_resource type="Script" path="res://Scenes/UI/battle.gd" id="1_s35lp"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://Scenes/UI/discard_pile.gd" id="14_7ahav"]
 [ext_resource type="Script" path="res://Scenes/UI/draw_pile.gd" id="14_43etp"]
 [ext_resource type="Texture2D" uid="uid://ck5p5fy5f421b" path="res://Assets/Art/Cards/discard.png" id="14_v5xw0"]
+[ext_resource type="FontFile" uid="uid://bb7vabmkkkg" path="res://Assets/mago2.ttf" id="16_nh4xf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_10jr0"]
 
@@ -197,18 +198,15 @@ hover_direction = Vector2(0, -96)
 hide_by_default = true
 
 [node name="Description" type="Label" parent="DrawPile"]
-visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -8.0
-offset_top = 80.0
-offset_right = 17.0
-offset_bottom = 99.0
+offset_left = -2.0
+offset_top = 88.0
+offset_right = 1.0
+offset_bottom = 107.0
 grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("5_tkefu")
+theme_override_fonts/font = ExtResource("16_nh4xf")
 text = "Show draw pile"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -273,20 +271,18 @@ theme_override_constants/h_separation = -37
 alignment = 1
 vertical = false
 hover_direction = Vector2(0, -96)
+hide_by_default = true
 
 [node name="Description" type="Label" parent="DiscardPile"]
-visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -24.0
-offset_top = 80.0
-offset_right = 18.0
-offset_bottom = 99.0
+offset_left = -12.0
+offset_top = 88.0
+offset_right = 13.0
+offset_bottom = 107.0
 grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = ExtResource("5_tkefu")
+theme_override_fonts/font = ExtResource("16_nh4xf")
 text = "Show discard pile"
 horizontal_alignment = 1
 vertical_alignment = 1
