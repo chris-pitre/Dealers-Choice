@@ -11,10 +11,11 @@ script = ExtResource("1_mxjf3")
 [resource]
 script = ExtResource("1_dirrf")
 name = "Tommy Gun"
-description = "Do 2 damage 3 times"
+description = "Do 1 damage 10 times"
 sprite = ExtResource("2_b3js3")
 numbers = Array[int]([])
 custom_behavior = SubResource("Resource_62exd")
 sound_effect = ExtResource("2_cyl64")
+volume_db = 0
 action = 16
 card_flags = 0

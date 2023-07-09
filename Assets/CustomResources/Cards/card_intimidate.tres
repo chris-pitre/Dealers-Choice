@@ -16,5 +16,6 @@ sprite = ExtResource("2_px2bo")
 numbers = Array[int]([])
 custom_behavior = SubResource("Resource_8qjdq")
 sound_effect = ExtResource("3_7ktle")
+volume_db = 0
 action = 16
 card_flags = 0

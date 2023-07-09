@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://na5xcpcpmqr0"]
+
+[ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="1_lp1pi"]
+[ext_resource type="Texture2D" uid="uid://c2fvu268sytw7" path="res://Assets/Art/Cards/card_attack_spikes.png" id="2_p67vt"]
+
+[resource]
+script = ExtResource("1_lp1pi")
+name = "Booby Trap"
+description = "Attacks and Defends for %d."
+sprite = ExtResource("2_p67vt")
+numbers = Array[int]([5])
+volume_db = 0
+action = 3
+card_flags = 0

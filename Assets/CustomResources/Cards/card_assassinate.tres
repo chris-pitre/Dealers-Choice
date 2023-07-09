@@ -14,5 +14,6 @@ description = "Deal %d Damage, Rush Opponent"
 sprite = ExtResource("2_8as3j")
 numbers = Array[int]([10])
 custom_behavior = SubResource("Resource_hho7s")
+volume_db = 0
 action = 16
 card_flags = 0

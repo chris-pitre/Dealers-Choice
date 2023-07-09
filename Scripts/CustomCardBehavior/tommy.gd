@@ -2,5 +2,5 @@ class_name Tommy
 extends CustomCardBehavior
 
 func action(user: BattleActor, target: BattleActor) -> void:
-	for i in range(3):
-		target.damage(2)
+	for i in range(10):
+		target.damage(1)
