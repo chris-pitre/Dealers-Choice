@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dpcoeltsgl2di" path="res://Assets/Art/UI/icon_moveback.png" id="5_2muf6"]
 [ext_resource type="Texture2D" uid="uid://d1x5hjr2y4p2r" path="res://Assets/Art/UI/icon_eye.png" id="6_gr54x"]
 [ext_resource type="Texture2D" uid="uid://bkdw55r7bomj8" path="res://Assets/Art/UI/discard.png" id="7_ns3ah"]
-[ext_resource type="Texture2D" uid="uid://c06c2hcdr4vd3" path="res://Assets/Art/UI/pokerchip.png" id="8_ngqwr"]
+[ext_resource type="Texture2D" uid="uid://c06c2hcdr4vd3" path="res://Assets/Art/UI/pokerchip.png" id="8_6045h"]
 
 [sub_resource type="FontVariation" id="FontVariation_muw3m"]
 base_font = ExtResource("3_7mxcj")
@@ -83,7 +83,6 @@ custom_minimum_size = Vector2(256, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_muw3m")
-text = "This shuffles the deck. (2 points)"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -115,7 +114,7 @@ texture = ExtResource("7_ns3ah")
 
 [node name="Points" type="TextureRect" parent="DealerActionBar"]
 layout_mode = 2
-texture = ExtResource("8_ngqwr")
+texture = ExtResource("8_6045h")
 expand_mode = 2
 
 [node name="PointsLabel" type="Label" parent="DealerActionBar/Points"]
@@ -126,14 +125,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -20.0
-offset_top = -11.5
+offset_top = -13.0
 offset_right = 20.0
-offset_bottom = 11.5
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_7mxcj")
-text = "20
-"
+text = "20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -147,9 +145,6 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="DealerActionBar/Mark" to="." method="_on_mark_mouse_entered"]
 [connection signal="mouse_exited" from="DealerActionBar/Mark" to="." method="_on_mark_mouse_exited"]
 [connection signal="pressed" from="DealerActionBar/Mark" to="." method="_on_mark_pressed"]
-[connection signal="mouse_entered" from="DealerActionBar/Discard" to="." method="_on_discard_mouse_entered"]
-[connection signal="mouse_exited" from="DealerActionBar/Discard" to="." method="_on_discard_mouse_exited"]
-[connection signal="pressed" from="DealerActionBar/Discard" to="." method="_on_discard_pressed"]
 
 [editable path="DealerActionBar/Shuffle"]
 [editable path="DealerActionBar/SwapBack"]

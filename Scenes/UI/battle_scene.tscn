@@ -137,9 +137,9 @@ alignment = 2
 [node name="DrawPile" type="Button" parent="."]
 layout_mode = 0
 offset_left = 80.0
-offset_top = 248.0
+offset_top = 256.0
 offset_right = 144.0
-offset_bottom = 344.0
+offset_bottom = 352.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_10jr0")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_nffiu")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ux4wi")
@@ -169,11 +169,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GreenPanel" parent="DrawPile" instance=ExtResource("11_cgjwk")]
+visible = false
 layout_mode = 0
 offset_left = -72.0
-offset_top = -120.0
+offset_top = -136.0
 offset_right = 200.0
-offset_bottom = -8.0
+offset_bottom = -24.0
 
 [node name="DeckDisplay" parent="DrawPile/GreenPanel" instance=ExtResource("12_bdx2t")]
 layout_mode = 1
@@ -213,9 +214,9 @@ vertical_alignment = 1
 [node name="DiscardPile" type="Button" parent="."]
 layout_mode = 0
 offset_left = 496.0
-offset_top = 248.0
+offset_top = 256.0
 offset_right = 560.0
-offset_bottom = 344.0
+offset_bottom = 352.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_10jr0")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_nffiu")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_ux4wi")
@@ -245,11 +246,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GreenPanel" parent="DiscardPile" instance=ExtResource("11_cgjwk")]
+visible = false
 layout_mode = 0
 offset_left = -136.0
-offset_top = -120.0
+offset_top = -136.0
 offset_right = 136.0
-offset_bottom = -8.0
+offset_bottom = -24.0
 
 [node name="DeckDisplay" parent="DiscardPile/GreenPanel" instance=ExtResource("12_bdx2t")]
 layout_mode = 1
