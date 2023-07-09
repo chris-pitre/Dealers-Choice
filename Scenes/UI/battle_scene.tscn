@@ -197,6 +197,7 @@ hover_direction = Vector2(0, -96)
 hide_by_default = true
 
 [node name="Description" type="Label" parent="DrawPile"]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -208,6 +209,7 @@ grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_tkefu")
+text = "Show draw pile"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -273,6 +275,7 @@ vertical = false
 hover_direction = Vector2(0, -96)
 
 [node name="Description" type="Label" parent="DiscardPile"]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -284,6 +287,7 @@ grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("5_tkefu")
+text = "Show discard pile"
 horizontal_alignment = 1
 vertical_alignment = 1
 
