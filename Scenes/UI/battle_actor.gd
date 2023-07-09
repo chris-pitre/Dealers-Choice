@@ -45,6 +45,10 @@ func play_cards(num: int, target: BattleActor) -> Array[Card]:
 
 
 func damage(x: int) -> void:
+	if is_player:
+		Main.score -= x
+	else:
+		Main.score += x * 5
 	if data.shield > 0:
 		data.shield -= x
 		if data.shield < 0:

@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://d21cppjv0mtmd"]
+
+[ext_resource type="Script" path="res://Scenes/UI/death_menu.gd" id="1_m2ahe"]
+[ext_resource type="PackedScene" uid="uid://uduj4c6id06" path="res://Scenes/UI/green_panel.tscn" id="2_qifpe"]
+[ext_resource type="FontFile" uid="uid://dsll48v48qv42" path="res://Assets/EquipmentPro.ttf" id="3_txsna"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ru8td"]
+bg_color = Color(1, 0.992157, 0.905882, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.309804, 0.203922, 0.184314, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3th55"]
+bg_color = Color(0.309804, 0.203922, 0.184314, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.309804, 0.203922, 0.184314, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+anti_aliasing = false
+
+[node name="DeathMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m2ahe")
+
+[node name="GreenPanel" parent="." instance=ExtResource("2_qifpe")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -113.5
+offset_right = 124.0
+offset_bottom = 113.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GreenPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -13.0
+offset_right = 31.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="You Died" type="Label" parent="GreenPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_txsna")
+theme_override_font_sizes/font_size = 48
+text = "MR.X DIED!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Won" type="Label" parent="GreenPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_txsna")
+theme_override_font_sizes/font_size = 32
+text = "Matches Won: %d"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Score" type="Label" parent="GreenPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_txsna")
+theme_override_font_sizes/font_size = 32
+text = "Total Score: %d"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Button" parent="GreenPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.309804, 0.203922, 0.184314, 1)
+theme_override_colors/font_hover_color = Color(1, 0.992157, 0.905882, 1)
+theme_override_fonts/font = ExtResource("3_txsna")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ru8td")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3th55")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3th55")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3th55")
+text = "Quit
+"
+
+[connection signal="pressed" from="GreenPanel/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

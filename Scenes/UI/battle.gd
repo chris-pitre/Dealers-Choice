@@ -1,6 +1,6 @@
 class_name Battle extends Control
 
-signal lost()
+signal lost
 signal new_battle
 
 const CARD_DISPLAY = preload("res://Scenes/UI/card_display.tscn")
@@ -149,7 +149,6 @@ func _on_battle_actor_2_played_card(from, card) -> void:
 
 func _on_battle_actor_actor_death(actor) -> void:
 	lost.emit()
-	get_tree().quit()
 
 func _on_battle_actor_2_actor_death(actor) -> void:
 	get_new_battle()
