@@ -164,6 +164,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GreenPanel" parent="DrawPile" instance=ExtResource("11_cgjwk")]
+visible = false
 layout_mode = 0
 offset_left = -72.0
 offset_top = -120.0

@@ -33,6 +33,7 @@ func add_card(card: Card) -> CardDisplay:
 		set("theme_override_constants/h_separation", get_compact_separation())
 	return new_card_display
 
+
 func reinit_deck() -> void:
 	for child in get_children():
 		child.queue_free()
