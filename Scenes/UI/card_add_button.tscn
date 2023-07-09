@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn0gohxwfmteg"]
+
+[ext_resource type="PackedScene" uid="uid://dkfunjaop0ihl" path="res://Scenes/UI/card_display.tscn" id="1_4nwka"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_267xv"]
+bg_color = Color(0.141176, 0.141176, 0.141176, 0.529412)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="CardAddButton" type="Button"]
+custom_minimum_size = Vector2(64, 96)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_267xv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_267xv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_267xv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_267xv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_267xv")
+
+[node name="CardDisplay" parent="." instance=ExtResource("1_4nwka")]
+layout_mode = 2
+mouse_filter = 1
+hover_direction = Vector2(0, -8)

@@ -11,13 +11,19 @@ signal actor_death(actor: BattleActor)
 @export var data: BattleActorData
 @export var healthbar: Healthbar
 @export var statuses: StatusBar
+@export var portrait_sprite: TextureRect
 @export var is_player: bool = false
 
 func _ready() -> void:
 	if data.deck == null:
 		data.deck = await DeckCreatorSingleton.create_random_deck(randi() % 7 + 6)
 	deck_display.deck = data.deck
+	load_data()
 
+func load_data() -> void:
+	healthbar.max_health = data.max_health
+	healthbar.health = data.health
+	portrait_sprite.texture = data.portrait
 
 func play_cards(num: int, target: BattleActor) -> Array[Card]:
 	var card_array: Array[Card] = []

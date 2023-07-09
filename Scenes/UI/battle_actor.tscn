@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b0c77a1jvfk1o" path="res://Assets/Art/UI/portraitback.png" id="4_gpiod"]
 [ext_resource type="PackedScene" path="res://Scenes/UI/statuses_bar.tscn" id="5_rsfcg"]
 
-[node name="BattleActor" type="VBoxContainer" node_paths=PackedStringArray("deck_display", "healthbar", "statuses")]
+[node name="BattleActor" type="VBoxContainer" node_paths=PackedStringArray("deck_display", "healthbar", "statuses", "portrait_sprite")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 64.0
@@ -15,6 +15,7 @@ script = ExtResource("1_xwkth")
 deck_display = NodePath("DeckDisplay")
 healthbar = NodePath("Healthbar")
 statuses = NodePath("StatusesBar")
+portrait_sprite = NodePath("Portrait/Sprite")
 
 [node name="Healthbar" parent="." instance=ExtResource("2_odalc")]
 layout_mode = 2
@@ -24,8 +25,19 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Portrait" type="TextureRect" parent="."]
 layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("4_gpiod")
+stretch_mode = 2
+
+[node name="Sprite" type="TextureRect" parent="Portrait"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 0
 texture = ExtResource("4_gpiod")
 stretch_mode = 2

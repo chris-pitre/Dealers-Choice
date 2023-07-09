@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dl7n7dtjesfee" path="res://Scenes/UI/battle_actor.tscn" id="4_u0fom"]
 [ext_resource type="FontFile" uid="uid://dsll48v48qv42" path="res://Assets/EquipmentPro.ttf" id="5_tkefu"]
 [ext_resource type="Script" path="res://Scenes/UI/spinner.gd" id="5_wy6p0"]
-[ext_resource type="Resource" uid="uid://d0vts856m111i" path="res://Assets/CustomResources/Actors/john.tres" id="6_rh0e4"]
 [ext_resource type="Resource" uid="uid://bttej4rq33ohs" path="res://Assets/CustomResources/Actors/enemy.tres" id="7_gppev"]
+[ext_resource type="Resource" uid="uid://d0vts856m111i" path="res://Assets/CustomResources/Actors/player.tres" id="9_nxomn"]
 
 [node name="Battle" type="Control" node_paths=PackedStringArray("battle_manager", "dealer", "battle_actor_left", "battle_actor_right")]
 custom_minimum_size = Vector2(640, 360)
@@ -91,7 +91,7 @@ layout_mode = 2
 [node name="BattleActor" parent="BattleMargin" instance=ExtResource("4_u0fom")]
 layout_mode = 2
 size_flags_horizontal = 0
-data = ExtResource("6_rh0e4")
+data = ExtResource("9_nxomn")
 is_player = true
 
 [node name="DeckDisplay" parent="BattleMargin/BattleActor" index="1"]
@@ -106,8 +106,11 @@ data = ExtResource("7_gppev")
 size_flags_horizontal = 8
 hover_direction = Vector2(-64, 0)
 
-[node name="TextureRect" parent="BattleMargin/BattleActor2" index="2"]
+[node name="Portrait" parent="BattleMargin/BattleActor2" index="2"]
 size_flags_horizontal = 8
+
+[node name="StatusesBar" parent="BattleMargin/BattleActor2" index="3"]
+alignment = 2
 
 [connection signal="turn_changed" from="BattleManager" to="Spinner" method="_on_battle_manager_turn_changed"]
 [connection signal="dealer_dealt" from="BattleMargin/Dealer" to="." method="_on_dealer_dealer_dealt"]
