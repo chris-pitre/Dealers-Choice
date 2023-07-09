@@ -16,8 +16,8 @@ var total_cards: int = 0
 @onready var spinner = $Spinner
 @onready var current_target_actor = battle_actor_left
 
-var deck: Deck = Deck.new()
-var discard: Deck = Deck.new()
+static var deck: Deck = Deck.new()
+static var discard: Deck = Deck.new()
 
 func _ready() -> void:
 	battle_manager.battle_ended.connect(_on_battle_end)
