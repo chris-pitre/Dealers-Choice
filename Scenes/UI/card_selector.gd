@@ -12,13 +12,13 @@ func show_cards() -> void:
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(self, "position", Vector2(0, 0), 0.6)
+	await tween.tween_property(self, "position", Vector2(0, 0), 0.6).finished
 
 func hide_cards() -> void:
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
 	tween.set_trans(Tween.TRANS_QUAD)
-	tween.tween_property(self, "position", Vector2(0, 360), 0.6)
+	await tween.tween_property(self, "position", Vector2(0, 360), 0.6).finished
 
 
 func get_random_cards() -> void:
