@@ -31,7 +31,9 @@ func _on_swap_back_pressed() -> void:
 		top_card.load_card(deck.cards[0])
 
 func _on_mark_pressed() -> void:
-	deck.cards[0].card_flags |= Card.CardFlags.Marked
+	if points >= 2:
+		points -= 2
+		deck.cards[0].card_flags |= Card.CardFlags.Marked
 
 func _on_deal_button_pressed() -> void:
 	AudioSingleton.play_sfx(load("res://Assets/SFX/card.wav"))

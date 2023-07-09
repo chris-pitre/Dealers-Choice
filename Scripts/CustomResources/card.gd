@@ -28,7 +28,7 @@ func _set_action(x) -> void:
 
 func _set_card_flags(x) -> void:
 	card_flags = x
-	flags_changed.emit(x)
+	flags_changed.emit(self, x)
 
 func play_card(user: BattleActor, target: BattleActor):
 	if sound_effect != null:
