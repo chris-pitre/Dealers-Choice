@@ -35,6 +35,7 @@ func _on_heal_indication_timeout() -> void:
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(health_progress, "value", health, 0.5)
 	tween.play()
+	await tween.finished
 
 func _on_damage_indication_timeout() -> void:
 	var tween = create_tween()
@@ -42,3 +43,4 @@ func _on_damage_indication_timeout() -> void:
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(health_damage, "value", health, 0.5)
 	tween.play()
+	await tween.finished
