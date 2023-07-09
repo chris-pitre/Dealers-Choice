@@ -67,10 +67,10 @@ func give_dealer_cards() -> void:
 			shuffle_discard_in()
 		var add_card = deck.remove_top_card()
 		move_card_anim($DrawPile.position, Vector2(320, 180) - Vector2(64, 96) / 2, add_card)
-		print(add_card)
 		dealer.deck.add_card(add_card)
 		await get_tree().create_timer(0.05).timeout
 	await get_tree().create_timer(0.2).timeout
+	dealer.num_cards_left_label.text = "Num cards left: %d" % dealer.deck.size()
 	dealer.top_card.load_card(dealer.deck.cards[0])
 
 func shuffle_discard_in() -> void:
