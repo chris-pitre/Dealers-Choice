@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0wvh4jwf3mlh"]
+[gd_scene load_steps=19 format=3 uid="uid://d0wvh4jwf3mlh"]
 
 [ext_resource type="Script" path="res://Scripts/TurnManager/battle_manager.gd" id="1_6hl1r"]
 [ext_resource type="Script" path="res://Scenes/UI/battle.gd" id="1_s35lp"]
@@ -9,8 +9,22 @@
 [ext_resource type="FontFile" uid="uid://dsll48v48qv42" path="res://Assets/EquipmentPro.ttf" id="5_tkefu"]
 [ext_resource type="Script" path="res://Scenes/UI/spinner.gd" id="5_wy6p0"]
 [ext_resource type="Resource" uid="uid://cvfa4ifxxsw2a" path="res://Assets/CustomResources/Actors/player.tres" id="9_nxomn"]
+[ext_resource type="Texture2D" uid="uid://8y7g7vgj0tw1" path="res://Assets/Art/Cards/cardback.png" id="10_qtenj"]
+[ext_resource type="PackedScene" uid="uid://uduj4c6id06" path="res://Scenes/UI/green_panel.tscn" id="11_cgjwk"]
+[ext_resource type="PackedScene" uid="uid://d0qb1xb2vinlw" path="res://Scenes/UI/deck_display.tscn" id="12_bdx2t"]
+[ext_resource type="Script" path="res://Scenes/UI/draw_pile.gd" id="14_43etp"]
 
-[node name="Battle" type="Control" node_paths=PackedStringArray("battle_manager", "dealer", "battle_actor_left", "battle_actor_right")]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_10jr0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nffiu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ux4wi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s6dbs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_joymk"]
+
+[node name="Battle" type="Control" node_paths=PackedStringArray("battle_manager", "dealer", "battle_actor_left", "battle_actor_right", "draw_pile_display")]
 custom_minimum_size = Vector2(640, 360)
 layout_mode = 3
 anchors_preset = 0
@@ -21,6 +35,7 @@ battle_manager = NodePath("BattleManager")
 dealer = NodePath("BattleMargin/Dealer")
 battle_actor_left = NodePath("BattleMargin/BattleActor")
 battle_actor_right = NodePath("BattleMargin/BattleActor2")
+draw_pile_display = NodePath("DrawPile/GreenPanel/DeckDisplay")
 
 [node name="BattleManager" type="Node" parent="."]
 script = ExtResource("1_6hl1r")
@@ -86,6 +101,7 @@ theme_override_constants/margin_bottom = 8
 [node name="Dealer" parent="BattleMargin" instance=ExtResource("3_fd2id")]
 visible = false
 layout_mode = 2
+size_flags_vertical = 1
 
 [node name="BattleActor" parent="BattleMargin" instance=ExtResource("4_u0fom")]
 layout_mode = 2
@@ -113,10 +129,84 @@ size_flags_horizontal = 8
 [node name="StatusesBar" parent="BattleMargin/BattleActor2" index="4"]
 alignment = 2
 
+[node name="DrawPile" type="Button" parent="."]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 248.0
+offset_right = 144.0
+offset_bottom = 344.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_10jr0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nffiu")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ux4wi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_s6dbs")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_joymk")
+script = ExtResource("14_43etp")
+
+[node name="TextureRect" type="TextureRect" parent="DrawPile"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("10_qtenj")
+
+[node name="Amount" type="Label" parent="DrawPile/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_tkefu")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GreenPanel" parent="DrawPile" instance=ExtResource("11_cgjwk")]
+layout_mode = 0
+offset_left = -72.0
+offset_top = -120.0
+offset_right = 200.0
+offset_bottom = -8.0
+
+[node name="DeckDisplay" parent="DrawPile/GreenPanel" instance=ExtResource("12_bdx2t")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+alignment = 1
+vertical = false
+
+[node name="Description" type="Label" parent="DrawPile"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -12.5
+offset_top = -18.0
+offset_right = 12.5
+offset_bottom = 1.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_tkefu")
+text = "Show draw pile"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="discard" from="BattleManager" to="." method="_on_battle_manager_discard"]
 [connection signal="turn_changed" from="BattleManager" to="Spinner" method="_on_battle_manager_turn_changed"]
 [connection signal="dealer_dealt" from="BattleMargin/Dealer" to="." method="_on_dealer_dealer_dealt"]
+[connection signal="actor_death" from="BattleMargin/BattleActor" to="." method="_on_battle_actor_actor_death"]
 [connection signal="played_card" from="BattleMargin/BattleActor" to="." method="_on_battle_actor_played_card"]
+[connection signal="actor_death" from="BattleMargin/BattleActor2" to="." method="_on_battle_actor_2_actor_death"]
 [connection signal="played_card" from="BattleMargin/BattleActor2" to="." method="_on_battle_actor_2_played_card"]
+[connection signal="mouse_entered" from="DrawPile" to="DrawPile" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DrawPile" to="DrawPile" method="_on_mouse_exited"]
+[connection signal="pressed" from="DrawPile" to="DrawPile" method="_on_pressed"]
 
 [editable path="BattleMargin/BattleActor"]
 [editable path="BattleMargin/BattleActor2"]

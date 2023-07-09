@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bn0gohxwfmteg" path="res://Scenes/UI/card_add_button.tscn" id="2_y83et"]
 [ext_resource type="FontFile" uid="uid://dsll48v48qv42" path="res://Assets/EquipmentPro.ttf" id="3_w8y0y"]
 
-[node name="CardSelector" type="Control"]
+[node name="CardSelector" type="Control" node_paths=PackedStringArray("card_buttons")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f55kc")
+card_buttons = NodePath("NinePatchRect/MarginContainer/CardButtons")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 custom_minimum_size = Vector2(256, 160)
@@ -49,17 +50,17 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="CardGrabs" type="HBoxContainer" parent="NinePatchRect/MarginContainer"]
+[node name="CardButtons" type="HBoxContainer" parent="NinePatchRect/MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="CardAddButton" parent="NinePatchRect/MarginContainer/CardGrabs" instance=ExtResource("2_y83et")]
+[node name="CardAddButton" parent="NinePatchRect/MarginContainer/CardButtons" instance=ExtResource("2_y83et")]
 layout_mode = 2
 
-[node name="CardAddButton2" parent="NinePatchRect/MarginContainer/CardGrabs" instance=ExtResource("2_y83et")]
+[node name="CardAddButton2" parent="NinePatchRect/MarginContainer/CardButtons" instance=ExtResource("2_y83et")]
 layout_mode = 2
 
-[node name="CardAddButton3" parent="NinePatchRect/MarginContainer/CardGrabs" instance=ExtResource("2_y83et")]
+[node name="CardAddButton3" parent="NinePatchRect/MarginContainer/CardButtons" instance=ExtResource("2_y83et")]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="NinePatchRect/MarginContainer"]
@@ -78,6 +79,6 @@ text = "(The one you pick is not guaranteed!)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="NinePatchRect/MarginContainer/CardGrabs/CardAddButton" to="." method="_on_card_add_button_pressed"]
-[connection signal="pressed" from="NinePatchRect/MarginContainer/CardGrabs/CardAddButton2" to="." method="_on_card_add_button_2_pressed"]
-[connection signal="pressed" from="NinePatchRect/MarginContainer/CardGrabs/CardAddButton3" to="." method="_on_card_add_button_3_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/CardButtons/CardAddButton" to="." method="_on_card_add_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/CardButtons/CardAddButton2" to="." method="_on_card_add_button_2_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/CardButtons/CardAddButton3" to="." method="_on_card_add_button_3_pressed"]

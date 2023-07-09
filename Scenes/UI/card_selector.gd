@@ -4,6 +4,14 @@ class_name CardSelector extends Control
 signal selected_card(card: Card)
 
 
+@export var card_buttons: HBoxContainer
+
+
+func _ready() -> void:
+	for card_button in card_buttons.get_children():
+		card_button.pressed.connect(_on_card_add_button_pressed)
+
+
 func show_cards() -> void:
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_OUT)
@@ -17,13 +25,10 @@ func hide_cards() -> void:
 	tween.tween_property(self, "position", Vector2(0, 360), 0.6)
 
 
-func _on_card_add_button_pressed() -> void:
-	print("Card 1 selected.")
+func get_random_cards() -> void:
+	for card_button in card_buttons.get_children():
+		card_button.set_card(GeneratorSingleton.get_random_card())
 
 
-func _on_card_add_button_2_pressed() -> void:
-	print("Card 2 selected.")
-
-
-func _on_card_add_button_3_pressed() -> void:
-	print("Card 3 selected.")
+func _on_card_add_button_pressed(idx: int) -> void:
+	print("Card %d selected." % idx)

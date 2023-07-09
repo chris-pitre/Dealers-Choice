@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://Scenes/UI/deck_display.gd" id="1_6pl34"]
 
-[node name="DeckDisplay" type="VFlowContainer"]
-offset_bottom = 360.0
-alignment = 1
+[node name="FlowContainer" type="FlowContainer"]
+offset_top = 180.0
+offset_bottom = 180.0
+vertical = true
 script = ExtResource("1_6pl34")

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://1xlmutoli5xt" path="res://Scenes/UI/healthbar.tscn" id="2_odalc"]
 [ext_resource type="FontFile" uid="uid://dsll48v48qv42" path="res://Assets/EquipmentPro.ttf" id="4_38bxj"]
 [ext_resource type="Texture2D" uid="uid://b0c77a1jvfk1o" path="res://Assets/Art/UI/portraitback.png" id="4_gpiod"]
-[ext_resource type="PackedScene" path="res://Scenes/UI/statuses_bar.tscn" id="5_rsfcg"]
+[ext_resource type="PackedScene" uid="uid://s5qmuv01fj5v" path="res://Scenes/UI/statuses_bar.tscn" id="5_rsfcg"]
 
 [node name="BattleActor" type="VBoxContainer" node_paths=PackedStringArray("deck_display", "healthbar", "statuses", "name_label", "portrait_sprite")]
 anchors_preset = 9
@@ -26,6 +26,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
+alignment = 2
 
 [node name="NameLabel" type="Label" parent="."]
 layout_mode = 2

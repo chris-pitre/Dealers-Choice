@@ -21,9 +21,7 @@ func list_all_card_files() -> Array[Card]:
 func create_random_deck(size: int) -> Deck:
 	var deck = Deck.new()
 	for i in range(size):
-		var rand_index = randi() %  card_array.size()
-		var card = card_array[rand_index]
-		deck.cards.append(card)
+		deck.cards.append(get_random_card())
 	return deck
 
 func create_random_enemy() -> Enemy:
@@ -45,3 +43,8 @@ func create_name() -> String:
 		else:
 			r_name = r_name+" the "+r_title
 	return r_name
+
+func get_random_card() -> Card:
+	var rand_index = randi() % card_array.size()
+	var card = card_array[rand_index]
+	return card

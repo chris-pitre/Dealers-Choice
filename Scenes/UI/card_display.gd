@@ -30,11 +30,11 @@ func load_card(card: Card) -> void:
 
 
 func show_sprite() -> void:
-	sprite.show()
+	sprite.modulate = Color.WHITE
 
 
 func hide_sprite() -> void:
-	sprite.hide()
+	sprite.modulate = Color.TRANSPARENT
 
 
 func anim_add_child(to: Control) -> void:

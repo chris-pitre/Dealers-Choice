@@ -9,4 +9,5 @@ script = ExtResource("1_jfkis")
 shield_icon = NodePath("StatusIcon")
 
 [node name="StatusIcon" parent="." instance=ExtResource("2_vqeji")]
+visible = false
 layout_mode = 2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1575apjrcn0e"]
+[gd_scene load_steps=10 format=3 uid="uid://c1575apjrcn0e"]
 
 [ext_resource type="Script" path="res://Scenes/UI/dealer.gd" id="1_bu4e4"]
 [ext_resource type="PackedScene" uid="uid://dkfunjaop0ihl" path="res://Scenes/UI/card_display.tscn" id="2_6dano"]
@@ -11,13 +11,44 @@
 base_font = ExtResource("3_7mxcj")
 spacing_bottom = -4
 
-[node name="Dealer" type="VBoxContainer" node_paths=PackedStringArray("top_card", "num_cards_left_label")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpsqm"]
+bg_color = Color(1, 0.992157, 0.905882, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.309804, 0.203922, 0.184314, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58kem"]
+bg_color = Color(0.309804, 0.203922, 0.184314, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.309804, 0.203922, 0.184314, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+anti_aliasing = false
+
+[node name="Dealer" type="VBoxContainer" node_paths=PackedStringArray("top_card", "num_cards_left_label", "action_description")]
 size_flags_horizontal = 4
 size_flags_vertical = 8
 alignment = 2
 script = ExtResource("1_bu4e4")
 top_card = NodePath("TopCard")
 num_cards_left_label = NodePath("NumCardsLeft")
+action_description = NodePath("ActionDescription")
 
 [node name="TopCard" parent="." instance=ExtResource("2_6dano")]
 layout_mode = 2
@@ -34,14 +65,24 @@ horizontal_alignment = 1
 [node name="DealButton" type="Button" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.309804, 0.203922, 0.184314, 1)
+theme_override_colors/font_hover_color = Color(1, 0.992157, 0.905882, 1)
+theme_override_fonts/font = ExtResource("3_7mxcj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rpsqm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_58kem")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_58kem")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_58kem")
 text = "Deal"
 
 [node name="ActionDescription" type="Label" parent="."]
+custom_minimum_size = Vector2(256, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = SubResource("FontVariation_muw3m")
 text = "This shuffles the deck. (2 points)"
 horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="DealerActionBar" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -64,8 +105,14 @@ layout_mode = 2
 texture = ExtResource("6_gr54x")
 
 [connection signal="pressed" from="DealButton" to="." method="_on_deal_button_pressed"]
+[connection signal="mouse_entered" from="DealerActionBar/Shuffle" to="." method="_on_shuffle_mouse_entered"]
+[connection signal="mouse_exited" from="DealerActionBar/Shuffle" to="." method="_on_shuffle_mouse_exited"]
 [connection signal="pressed" from="DealerActionBar/Shuffle" to="." method="_on_shuffle_pressed"]
+[connection signal="mouse_entered" from="DealerActionBar/SwapBack" to="." method="_on_swap_back_mouse_entered"]
+[connection signal="mouse_exited" from="DealerActionBar/SwapBack" to="." method="_on_swap_back_mouse_exited"]
 [connection signal="pressed" from="DealerActionBar/SwapBack" to="." method="_on_swap_back_pressed"]
+[connection signal="mouse_entered" from="DealerActionBar/Mark" to="." method="_on_mark_mouse_entered"]
+[connection signal="mouse_exited" from="DealerActionBar/Mark" to="." method="_on_mark_mouse_exited"]
 [connection signal="pressed" from="DealerActionBar/Mark" to="." method="_on_mark_pressed"]
 
 [editable path="DealerActionBar/Shuffle"]

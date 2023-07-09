@@ -1,8 +1,9 @@
 class_name Deck extends Resource
 
-signal added_card
+signal added_card()
 signal removed_card(card_index: int)
 signal moved_card(first_index: int, second_index: int)
+signal combined()
 signal card_flags_modified(idx: int, new_flags: int)
 
 @export var cards: Array[Card] = []
@@ -26,7 +27,11 @@ func move_card(first_index: int, second_index: int) -> void:
 	cards[first_index] = cards[second_index]
 	cards[second_index] = temp
 	moved_card.emit(first_index, second_index)
-	
+
+func combine(deck: Deck) -> Deck:
+	cards.append_array(deck.cards)
+	return deck
+
 func shuffle_deck() -> void:
 	for i in range(cards.size()):
 		var random_index = randi() % cards.size()

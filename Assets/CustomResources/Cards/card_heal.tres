@@ -8,6 +8,6 @@ script = ExtResource("1_yxj5p")
 name = "Heal"
 description = "Heals for %d."
 sprite = ExtResource("2_ghkgs")
-numbers = Array[int]([5])
+numbers = Array[int]([12])
 action = 8
 card_flags = 0

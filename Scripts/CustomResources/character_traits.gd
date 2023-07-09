@@ -39,9 +39,13 @@ static var titles: Array[String] = [
 ]
 
 static var portraits: Array[String] = [
-	"res://Assets/Art/Actors/Portraits/bald.png", 
-	"res://Assets/Art/Actors/Portraits/bigguy.png", 
+	"res://Assets/Art/Actors/Portraits/bald.png",
+	"res://Assets/Art/Actors/Portraits/beard.png",
+	"res://Assets/Art/Actors/Portraits/bigguy.png",
+	"res://Assets/Art/Actors/Portraits/long.png",
+	"res://Assets/Art/Actors/Portraits/mediumhair.png",
 	"res://Assets/Art/Actors/Portraits/mustache.png", 
 	"res://Assets/Art/Actors/Portraits/player.png",
+	"res://Assets/Art/Actors/Portraits/sho.png",
 	"res://Assets/Art/Actors/Portraits/woman.png",
 ]
