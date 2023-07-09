@@ -1,5 +1,6 @@
 class_name Battle extends Control
 
+const CARD_DISPLAY = preload("res://Scenes/UI/card_display.tscn")
 
 @export var battle_manager: BattleManager
 @export var dealer: Dealer

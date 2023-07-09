@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BattleActorData" load_steps=4 format=3 uid="uid://d0vts856m111i"]
+
+[ext_resource type="Resource" uid="uid://epabbq7fun7f" path="res://Assets/CustomResources/Decks/testdeck.tres" id="1_idax8"]
+[ext_resource type="Texture2D" uid="uid://dnvg5nvsc2lo7" path="res://Assets/Art/Actors/Portraits/player.png" id="2_l7mwl"]
+[ext_resource type="Script" path="res://Scripts/CustomResources/battle_actor_data.gd" id="3_u4abl"]
+
+[resource]
+script = ExtResource("3_u4abl")
+name = "You"
+portrait = ExtResource("2_l7mwl")
+deck = ExtResource("1_idax8")
+health = 30
+max_health = 30
+shield = 0

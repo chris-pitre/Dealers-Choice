@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvd3j16es0ny1"]
+
+[ext_resource type="Texture2D" uid="uid://c0osj8sprmywb" path="res://Assets/Art/UI/panel.png" id="1_acwhk"]
+[ext_resource type="Script" path="res://Scenes/UI/card_selector.gd" id="1_f55kc"]
+[ext_resource type="PackedScene" uid="uid://bn0gohxwfmteg" path="res://Scenes/UI/card_add_button.tscn" id="2_y83et"]
+[ext_resource type="FontFile" uid="uid://dsll48v48qv42" path="res://Assets/EquipmentPro.ttf" id="3_w8y0y"]
+
+[node name="CardSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f55kc")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(256, 160)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_acwhk")
+region_rect = Rect2(0, 0, 96, 96)
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="CardGrabs" type="HBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CardAddButton" parent="NinePatchRect/MarginContainer/CardGrabs" instance=ExtResource("2_y83et")]
+layout_mode = 2
+
+[node name="CardAddButton2" parent="NinePatchRect/MarginContainer/CardGrabs" instance=ExtResource("2_y83et")]
+layout_mode = 2
+
+[node name="CardAddButton3" parent="NinePatchRect/MarginContainer/CardGrabs" instance=ExtResource("2_y83et")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_w8y0y")
+text = "Select a card to favor."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_w8y0y")
+text = "(The one you pick is not guaranteed!)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="NinePatchRect/MarginContainer/CardGrabs/CardAddButton" to="." method="_on_card_add_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/CardGrabs/CardAddButton2" to="." method="_on_card_add_button_2_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/CardGrabs/CardAddButton3" to="." method="_on_card_add_button_3_pressed"]
