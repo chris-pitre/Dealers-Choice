@@ -5,6 +5,7 @@ signal removed_card(card_index: int)
 signal moved_card(first_index: int, second_index: int)
 signal combined()
 signal shuffled()
+signal cleared()
 signal card_flags_modified(idx: int, new_flags: int)
 
 @export var cards: Array[Card] = []
@@ -44,6 +45,10 @@ func shuffle_deck() -> void:
 	
 func size() -> int:
 	return cards.size()
+
+func clear() -> void:
+	cards.clear()
+	cleared.emit()
 
 func _on_card_flags_changed(card, flags) -> void:
 	card_flags_modified.emit(cards.find(card), flags)

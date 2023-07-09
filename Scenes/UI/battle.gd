@@ -9,7 +9,10 @@ const ROUND_RATIO = 0.4
 @export var dealer: Dealer
 @export var battle_actor_left: BattleActor
 @export var battle_actor_right: BattleActor
+@export var draw_pile: DrawPile
+@export var discard_pile: DiscardPile
 @export var draw_pile_display: DeckDisplay
+@export var discard_pile_display: DeckDisplay
 
 var total_cards: int = 0
 
@@ -22,6 +25,9 @@ static var discard: Deck = Deck.new()
 func _ready() -> void:
 	battle_manager.battle_ended.connect(_on_battle_end)
 	draw_pile_display.deck = deck
+	discard_pile_display.deck = discard
+	draw_pile.deck = deck
+	discard_pile.deck = discard
 	starting_phase()
 
 func starting_phase() -> void:
@@ -50,7 +56,7 @@ func attack_phase() -> void:
 func shuffle_decks_in(decks: Array) -> int:
 	for append_deck in decks:
 		deck.combine(append_deck)
-		append_deck.cards.clear()
+		append_deck.clear()
 	deck.shuffle_deck()
 	return deck.size()
 
@@ -68,7 +74,7 @@ func give_dealer_cards() -> void:
 func shuffle_discard_in() -> void:
 	deck.combine(discard)
 	deck.shuffle_deck()
-	discard.cards.clear()
+	discard.clear()
 
 func get_new_battle() -> void:
 	pass

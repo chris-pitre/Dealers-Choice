@@ -2,7 +2,7 @@ class_name CardDisplay extends Control
 
 
 var card: Card
-var flipped: bool = false
+var flipped: bool = false: set = _set_flipped
 var flipping = false
 var velocity: Vector2 = Vector2.ZERO
 var accel: Vector2 = Vector2.ZERO
@@ -65,21 +65,21 @@ func display_flags(flags: int) -> void:
 	if flags & Card.CardFlags.Marked:
 		pass
 
-
-func flip_card() -> void:
-	if not flipping:
-		var tween = create_tween()
-		tween.set_ease(Tween.EASE_IN)
-		tween.set_trans(Tween.TRANS_QUAD)
-		tween.tween_property(sprite, "scale", Vector2(0, 1), 0.2)
-		await tween.finished
-		if not flipped:
-			card_back.show()
-		else:
-			card_back.hide()
-		tween.tween_property(sprite, "scale", Vector2(1, 1), 0.2)
-		flipped = not flipped
-
+func _set_flipped(x) -> void:
+	if x != flipped:
+		if not flipping:
+			var tween = create_tween()
+			tween.set_ease(Tween.EASE_IN)
+			tween.set_trans(Tween.TRANS_QUAD)
+			tween.tween_property(sprite, "scale", Vector2(0, 1), 0.2)
+			await tween.finished
+			if not x:
+				card_back.show()
+			else:
+				card_back.hide()
+			tween.tween_property(sprite, "scale", Vector2(1, 1), 0.2)
+			flipped = not flipped
+	flipped = x
 
 func _on_mouse_entered() -> void:
 	if hoverable:
