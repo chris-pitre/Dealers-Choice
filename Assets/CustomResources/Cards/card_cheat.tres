@@ -14,5 +14,6 @@ description = "Use a random card"
 sprite = ExtResource("3_1dlsw")
 numbers = Array[int]([])
 custom_behavior = SubResource("Resource_qewx4")
+volume_db = 0
 action = 16
 card_flags = 0
