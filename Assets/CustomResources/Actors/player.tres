@@ -7,6 +7,6 @@
 script = ExtResource("3_u4abl")
 name = "Mr. X"
 portrait = ExtResource("2_l7mwl")
-health = 50
-max_health = 50
+health = 1
+max_health = 1
 shield = 0
