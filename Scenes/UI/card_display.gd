@@ -22,20 +22,16 @@ func _physics_process(delta: float) -> void:
 	rotation += angular_velocity * delta
 	velocity += accel * delta
 
-
 func load_card(card: Card) -> void:
 	name_label.text = card.name
 	sprite.texture = card.sprite
 	description_label.text = card.description % card.numbers
 
-
 func show_sprite() -> void:
 	sprite.modulate = Color.WHITE
 
-
 func hide_sprite() -> void:
 	sprite.modulate = Color.TRANSPARENT
-
 
 func anim_add_child(to: Control) -> void:
 	hide()
@@ -55,7 +51,6 @@ func anim_add_child(to: Control) -> void:
 	await tween.finished
 	new_display.show_sprite()
 	queue_free()
-
 
 func display_flags(flags: int) -> void:
 	if flags & Card.CardFlags.Flipped:

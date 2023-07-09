@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkfunjaop0ihl"]
+[gd_scene load_steps=7 format=3 uid="uid://dkfunjaop0ihl"]
 
 [ext_resource type="Texture2D" uid="uid://7tacfxya1l4s" path="res://Assets/Art/Cards/card_attack_pistol.png" id="1_7lb1v"]
 [ext_resource type="Script" path="res://Scenes/UI/card_display.gd" id="1_wh8jv"]
 [ext_resource type="FontFile" uid="uid://bb7vabmkkkg" path="res://Assets/mago2.ttf" id="4_45hmn"]
 [ext_resource type="Texture2D" uid="uid://8y7g7vgj0tw1" path="res://Assets/Art/Cards/cardback.png" id="4_qe30c"]
+[ext_resource type="Texture2D" uid="uid://ddahq7lnexdpk" path="res://Assets/Art/UI/mark.png" id="5_4bqrx"]
 
 [sub_resource type="FontVariation" id="FontVariation_igwuk"]
 base_font = ExtResource("4_45hmn")
@@ -59,6 +60,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("4_qe30c")
+
+[node name="Marked" type="TextureRect" parent="Sprite"]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 17.0
+offset_right = 11.0
+offset_bottom = 25.0
+texture = ExtResource("5_4bqrx")
+stretch_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
