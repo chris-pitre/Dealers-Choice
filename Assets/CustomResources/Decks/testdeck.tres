@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://dcjkphoc4vs5w" path="res://Assets/CustomResources/Cards/card_pistol.tres" id="3_3tu6e"]
 [ext_resource type="Resource" uid="uid://fpecp2ompkof" path="res://Assets/CustomResources/Cards/card_heal.tres" id="3_j87dv"]
 [ext_resource type="Resource" uid="uid://p0qbip4uuvf1" path="res://Assets/CustomResources/Cards/card_rush.tres" id="4_7odgf"]
-[ext_resource type="Resource" uid="uid://day0eg7c6lj15" path="res://Assets/CustomResources/Cards/card_cheat.tres" id="6_506eb"]
+[ext_resource type="Resource" uid="uid://ddmklvxofnhbt" path="res://Assets/CustomResources/Cards/card_cheat.tres" id="6_506eb"]
 
 [resource]
 script = ExtResource("1_yx6op")

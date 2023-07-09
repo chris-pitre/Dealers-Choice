@@ -43,12 +43,13 @@ expand_margin_left = 2.0
 expand_margin_right = 2.0
 anti_aliasing = false
 
-[node name="Dealer" type="VBoxContainer" node_paths=PackedStringArray("top_card", "num_cards_left_label", "action_description", "point_label")]
+[node name="Dealer" type="VBoxContainer" node_paths=PackedStringArray("top_card", "peek_card", "num_cards_left_label", "action_description", "point_label")]
 size_flags_horizontal = 4
 size_flags_vertical = 8
 alignment = 2
 script = ExtResource("1_bu4e4")
 top_card = NodePath("TopCard")
+peek_card = NodePath("TopCard/PeekCard")
 num_cards_left_label = NodePath("NumCardsLeft")
 action_description = NodePath("ActionDescription")
 point_label = NodePath("DealerActionBar/Points/PointsLabel")
@@ -56,6 +57,10 @@ point_label = NodePath("DealerActionBar/Points/PointsLabel")
 [node name="TopCard" parent="." instance=ExtResource("2_6dano")]
 layout_mode = 2
 size_flags_horizontal = 4
+hoverable = false
+
+[node name="PeekCard" parent="TopCard" instance=ExtResource("2_6dano")]
+show_behind_parent = true
 hoverable = false
 
 [node name="NumCardsLeft" type="Label" parent="."]
@@ -100,17 +105,17 @@ layout_mode = 2
 [node name="Icon" parent="DealerActionBar/SwapBack" index="0"]
 texture = ExtResource("5_2muf6")
 
-[node name="Mark" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
-layout_mode = 2
-
-[node name="Icon" parent="DealerActionBar/Mark" index="0"]
-texture = ExtResource("6_gr54x")
-
 [node name="Discard" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
 layout_mode = 2
 
 [node name="Icon" parent="DealerActionBar/Discard" index="0"]
 texture = ExtResource("7_ns3ah")
+
+[node name="Peek" parent="DealerActionBar" instance=ExtResource("4_2cqdc")]
+layout_mode = 2
+
+[node name="Icon" parent="DealerActionBar/Peek" index="0"]
+texture = ExtResource("6_gr54x")
 
 [node name="Points" type="TextureRect" parent="DealerActionBar"]
 layout_mode = 2
@@ -135,6 +140,10 @@ text = "20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="PeekTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="pressed" from="DealButton" to="." method="_on_deal_button_pressed"]
 [connection signal="mouse_entered" from="DealerActionBar/Shuffle" to="." method="_on_shuffle_mouse_entered"]
 [connection signal="mouse_exited" from="DealerActionBar/Shuffle" to="." method="_on_shuffle_mouse_exited"]
@@ -142,14 +151,15 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="DealerActionBar/SwapBack" to="." method="_on_swap_back_mouse_entered"]
 [connection signal="mouse_exited" from="DealerActionBar/SwapBack" to="." method="_on_swap_back_mouse_exited"]
 [connection signal="pressed" from="DealerActionBar/SwapBack" to="." method="_on_swap_back_pressed"]
-[connection signal="mouse_entered" from="DealerActionBar/Mark" to="." method="_on_mark_mouse_entered"]
-[connection signal="mouse_exited" from="DealerActionBar/Mark" to="." method="_on_mark_mouse_exited"]
-[connection signal="pressed" from="DealerActionBar/Mark" to="." method="_on_mark_pressed"]
 [connection signal="mouse_entered" from="DealerActionBar/Discard" to="." method="_on_discard_mouse_entered"]
 [connection signal="mouse_exited" from="DealerActionBar/Discard" to="." method="_on_discard_mouse_exited"]
 [connection signal="pressed" from="DealerActionBar/Discard" to="." method="_on_discard_pressed"]
+[connection signal="mouse_entered" from="DealerActionBar/Peek" to="." method="_on_mark_mouse_entered"]
+[connection signal="mouse_exited" from="DealerActionBar/Peek" to="." method="_on_mark_mouse_exited"]
+[connection signal="pressed" from="DealerActionBar/Peek" to="." method="_on_mark_pressed"]
+[connection signal="timeout" from="PeekTimer" to="." method="_on_peek_timer_timeout"]
 
 [editable path="DealerActionBar/Shuffle"]
 [editable path="DealerActionBar/SwapBack"]
-[editable path="DealerActionBar/Mark"]
 [editable path="DealerActionBar/Discard"]
+[editable path="DealerActionBar/Peek"]

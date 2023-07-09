@@ -115,25 +115,25 @@ size_flags_horizontal = 0
 data = ExtResource("9_nxomn")
 is_player = true
 
-[node name="DeckDisplay" parent="BattleMargin/BattleActor" index="1"]
+[node name="DeckDisplay" parent="BattleMargin/BattleActor" index="2"]
 hover_direction = Vector2(64, 0)
 
 [node name="BattleActor2" parent="BattleMargin" instance=ExtResource("4_u0fom")]
 layout_mode = 2
 size_flags_horizontal = 8
 
-[node name="DeckDisplay" parent="BattleMargin/BattleActor2" index="1"]
+[node name="StatusesBar" parent="BattleMargin/BattleActor2" index="1"]
+alignment = 2
+
+[node name="DeckDisplay" parent="BattleMargin/BattleActor2" index="2"]
 size_flags_horizontal = 8
 hover_direction = Vector2(-64, 0)
 
-[node name="NameLabel" parent="BattleMargin/BattleActor2" index="2"]
+[node name="NameLabel" parent="BattleMargin/BattleActor2" index="3"]
 size_flags_horizontal = 8
 
-[node name="Portrait" parent="BattleMargin/BattleActor2" index="3"]
+[node name="Portrait" parent="BattleMargin/BattleActor2" index="4"]
 size_flags_horizontal = 8
-
-[node name="StatusesBar" parent="BattleMargin/BattleActor2" index="4"]
-alignment = 2
 
 [node name="DrawPile" type="Button" parent="."]
 layout_mode = 0
