@@ -27,7 +27,7 @@ static var titles: Array[String] = [
 	"Made Man",
 	"Gunner",
 	"Thief",
-	"Dealers",
+	"Dealer",
 	"Boss",
 	"Capo",
 	"Don",

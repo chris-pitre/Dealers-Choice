@@ -15,10 +15,12 @@ signal battle_ended
 func _set_player(actor: BattleActor) -> void:
 	player = actor
 	player.actor_rush_start.connect(_do_rush)
+	player.actor_lose_turn.connect(_lose_turn)
 	
 func _set_enemy(actor: BattleActor) -> void:
 	enemy = actor
 	enemy.actor_rush_start.connect(_do_rush)
+	enemy.actor_lose_turn.connect(_lose_turn)
 
 func create_queue() -> void:
 	var queue_length = enemy.data.deck.size() + player.data.deck.size()
@@ -65,3 +67,7 @@ func _do_rush(actor: BattleActor):
 	if third_index != -1 and battle_queue.size() > 4:
 		swap_turns(first_index, third_index, actor)
 	
+func _lose_turn(actor: BattleActor):
+	var index = battle_queue.find(actor)
+	if index != -1:
+		battle_queue.pop_at(index)
