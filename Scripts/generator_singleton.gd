@@ -25,3 +25,23 @@ func create_random_deck(size: int) -> Deck:
 		var card = card_array[rand_index]
 		deck.cards.append(card)
 	return deck
+
+func create_random_enemy() -> Enemy:
+	var enemy = Enemy.new()
+	enemy.name = create_name()
+	enemy.portrait = load(CharacterTraits.portraits[randi() % CharacterTraits.portraits.size()])
+	enemy.max_health = randi() % 31 + 20
+	enemy.health = enemy.max_health
+	return enemy
+
+func create_name() -> String:
+	var r_name: String = CharacterTraits.names[randi() % CharacterTraits.names.size()]
+	var has_title: bool = randi() % 2 == 0
+	if has_title:
+		var r_title: String = CharacterTraits.titles[randi() % CharacterTraits.titles.size()]
+		var is_prefix: bool = randi() % 2 == 0
+		if is_prefix:
+			r_name = r_title+" "+r_name
+		else:
+			r_name = r_name+" the "+r_title
+	return r_name

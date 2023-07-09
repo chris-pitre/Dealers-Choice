@@ -15,8 +15,10 @@ signal actor_death(actor: BattleActor)
 @export var is_player: bool = false
 
 func _ready() -> void:
+	if data == null:
+		data = GeneratorSingleton.create_random_enemy()
 	if data.deck == null:
-		data.deck = await DeckCreatorSingleton.create_random_deck(randi() % 7 + 6)
+		data.deck = await GeneratorSingleton.create_random_deck(randi() % 7 + 6)
 	deck_display.deck = data.deck
 	load_data()
 
