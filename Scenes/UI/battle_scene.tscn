@@ -106,14 +106,19 @@ data = ExtResource("7_gppev")
 size_flags_horizontal = 8
 hover_direction = Vector2(-64, 0)
 
-[node name="Portrait" parent="BattleMargin/BattleActor2" index="2"]
+[node name="NameLabel" parent="BattleMargin/BattleActor2" index="2"]
 size_flags_horizontal = 8
 
-[node name="StatusesBar" parent="BattleMargin/BattleActor2" index="3"]
+[node name="Portrait" parent="BattleMargin/BattleActor2" index="3"]
+size_flags_horizontal = 8
+
+[node name="StatusesBar" parent="BattleMargin/BattleActor2" index="4"]
 alignment = 2
 
 [connection signal="turn_changed" from="BattleManager" to="Spinner" method="_on_battle_manager_turn_changed"]
 [connection signal="dealer_dealt" from="BattleMargin/Dealer" to="." method="_on_dealer_dealer_dealt"]
+[connection signal="played_card" from="BattleMargin/BattleActor" to="." method="_on_battle_actor_played_card"]
+[connection signal="played_card" from="BattleMargin/BattleActor2" to="." method="_on_battle_actor_2_played_card"]
 
 [editable path="BattleMargin/BattleActor"]
 [editable path="BattleMargin/BattleActor2"]

@@ -6,11 +6,13 @@ enum STATUSES{
 
 signal actor_rush_start(actor: BattleActor)
 signal actor_death(actor: BattleActor)
+signal played_card(from: Vector2, card: Card)
 
 @export var deck_display: DeckDisplay
 @export var data: BattleActorData
 @export var healthbar: Healthbar
 @export var statuses: StatusBar
+@export var name_label: Label
 @export var portrait_sprite: TextureRect
 @export var is_player: bool = false
 
@@ -23,6 +25,7 @@ func _ready() -> void:
 func load_data() -> void:
 	healthbar.max_health = data.max_health
 	healthbar.health = data.health
+	name_label.text = data.name
 	portrait_sprite.texture = data.portrait
 
 func play_cards(num: int, target: BattleActor) -> Array[Card]:
@@ -31,6 +34,7 @@ func play_cards(num: int, target: BattleActor) -> Array[Card]:
 		var card = data.deck.remove_top_card()
 		card_array.append(card)
 		card.play_card(self, target)
+		played_card.emit(deck_display.get_child(0).global_position, card)
 	await get_tree().create_timer(0.8).timeout
 	return card_array
 
