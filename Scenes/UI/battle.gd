@@ -25,6 +25,7 @@ static var discard: Deck = Deck.new()
 
 func _ready() -> void:
 	battle_manager.battle_ended.connect(_on_battle_end)
+	dealer.battle = self
 	draw_pile_display.deck = deck
 	discard_pile_display.deck = discard
 	draw_pile.deck = deck

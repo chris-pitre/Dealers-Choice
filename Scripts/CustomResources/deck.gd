@@ -7,6 +7,7 @@ signal combined()
 signal shuffled()
 signal cleared()
 signal card_flags_modified(idx: int, new_flags: int)
+signal num_cards_changed(amt: int)
 
 @export var cards: Array[Card] = []
 
@@ -15,6 +16,7 @@ func add_card(card: Card) -> void:
 	cards.append(card)
 	card.flags_changed.connect(_on_card_flags_changed)
 	added_card.emit()
+	num_cards_changed.emit(cards.size())
 
 func remove_top_card() -> Card:
 	return remove_card(0)
@@ -22,6 +24,7 @@ func remove_top_card() -> Card:
 func remove_card(card_index: int) -> Card:
 	var card = cards.pop_at(card_index)
 	removed_card.emit(card_index)
+	num_cards_changed.emit(cards.size())
 	return card
 
 func move_card(first_index: int, second_index: int) -> void:
@@ -33,6 +36,7 @@ func move_card(first_index: int, second_index: int) -> void:
 func combine(deck: Deck) -> Deck:
 	cards.append_array(deck.cards)
 	combined.emit()
+	num_cards_changed.emit(cards.size())
 	return deck
 
 func shuffle_deck() -> void:
@@ -49,6 +53,7 @@ func size() -> int:
 func clear() -> void:
 	cards.clear()
 	cleared.emit()
+	num_cards_changed.emit(cards.size())
 
 func _on_card_flags_changed(card, flags) -> void:
 	card_flags_modified.emit(cards.find(card), flags)
