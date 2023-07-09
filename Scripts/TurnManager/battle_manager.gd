@@ -49,8 +49,20 @@ func swap_turns(a: int, b: int) -> void:
 ## We do a little rushing
 func _do_rush(actor: BattleActor):
 	var first_index = battle_queue.find(actor)
-	if battle_queue.size() - first_index >= 5:
-		swap_turns(first_index + 4, first_index + 1)
-	elif battle_queue.size() - first_index >= 3:
-		swap_turns(first_index + 2, first_index + 1)
+	var second_index = battle_queue.find(actor, first_index+1)
+	var third_index = battle_queue.find(actor, second_index+1)
+	if second_index != -1 and battle_queue.size() > 2:
+		var swap_illegal = true
+		var swap_index = first_index
+		while swap_illegal:
+			swap_index += 1
+			swap_illegal = battle_queue[swap_index] == actor
+		swap_turns(swap_index, second_index)
+	if third_index != -1 and battle_queue.size() > 4:
+		var swap_illegal = true
+		var swap_index = first_index
+		while swap_illegal:
+			swap_index += 1
+			swap_illegal = battle_queue[swap_index] == actor
+		swap_turns(swap_index, third_index)
 	
