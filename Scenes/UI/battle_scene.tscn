@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dl7n7dtjesfee" path="res://Scenes/UI/battle_actor.tscn" id="4_u0fom"]
 [ext_resource type="FontFile" uid="uid://dsll48v48qv42" path="res://Assets/EquipmentPro.ttf" id="5_tkefu"]
 [ext_resource type="Script" path="res://Scenes/UI/spinner.gd" id="5_wy6p0"]
-[ext_resource type="Resource" path="res://Assets/CustomResources/Actors/player.tres" id="9_nxomn"]
+[ext_resource type="Resource" uid="uid://cvfa4ifxxsw2a" path="res://Assets/CustomResources/Actors/player.tres" id="9_nxomn"]
 
 [node name="Battle" type="Control" node_paths=PackedStringArray("battle_manager", "dealer", "battle_actor_left", "battle_actor_right")]
 custom_minimum_size = Vector2(640, 360)

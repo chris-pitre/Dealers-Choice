@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_m5daw")
 name = "Confuse"
-description = "Shuffles the Opponent's Deck"
+description = "Shuffles the Opponents Deck"
 sprite = ExtResource("3_fd1st")
 numbers = Array[int]([])
 custom_behavior = ExtResource("1_ac2yp")
