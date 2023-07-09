@@ -18,6 +18,7 @@ signal flags_changed(card: Card, new_flags: int)
 @export var sprite: Texture
 @export var numbers: Array[int] = []
 @export var custom_behavior: CustomCardBehavior
+@export var sound_effect: AudioStream = null
 
 @export_flags("Attack", "Defend", "Rush", "Heal", "Custom") var action = 0: set = _set_action
 @export_flags("Flipped", "Marked") var card_flags = 0: set = _set_card_flags
@@ -30,6 +31,10 @@ func _set_card_flags(x) -> void:
 	flags_changed.emit(x)
 
 func play_card(user: BattleActor, target: BattleActor):
+	if sound_effect != null:
+		AudioSingleton.play_sfx(sound_effect)
+	else:
+		AudioSingleton.play_sfx(load("res://Assets/SFX/card.wav"))
 	if action & Action.Attack:
 		#print("%s used %s for %d damage." % [user.data.name, name, numbers[0]])
 		target.damage(numbers[0])

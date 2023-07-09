@@ -7,7 +7,7 @@ var battle_queue: Array[BattleActor]
 var player: BattleActor : set = _set_player
 var enemy: BattleActor : set = _set_enemy
 
-@onready var discard: Deck = Deck.new()
+static var discard: Deck = Deck.new()
 
 signal turn_changed(actor: BattleActor)
 signal battle_ended

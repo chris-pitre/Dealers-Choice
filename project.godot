@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 ExitSingleton="*res://Scripts/exit_singleton.gd"
 GeneratorSingleton="*res://Scripts/generator_singleton.gd"
+AudioSingleton="*res://Scripts/audio_singleton.gd"
 
 [display]
 

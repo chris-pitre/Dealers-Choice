@@ -26,6 +26,7 @@ func _on_mark_pressed() -> void:
 
 
 func _on_deal_button_pressed() -> void:
+	AudioSingleton.play_sfx(load("res://Assets/SFX/card.wav"))
 	dealer_dealt.emit(deck.remove_card(0))
 	if deck.cards.size() > 0:
 		top_card.load_card(deck.cards[0])

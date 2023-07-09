@@ -1,13 +1,20 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bnwl7oxb1rmxr"]
+[gd_resource type="Resource" script_class="Card" load_steps=6 format=3 uid="uid://bnwl7oxb1rmxr"]
 
 [ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="1_dirrf"]
+[ext_resource type="Script" path="res://Scripts/CustomCardBehavior/tommy.gd" id="1_mxjf3"]
 [ext_resource type="Texture2D" uid="uid://dr0bfjn4nxt50" path="res://Assets/Art/Cards/card_attack_gun.png" id="2_b3js3"]
+[ext_resource type="AudioStream" uid="uid://r836cynterfo" path="res://Assets/SFX/tommy_gun.wav" id="2_cyl64"]
+
+[sub_resource type="Resource" id="Resource_62exd"]
+script = ExtResource("1_mxjf3")
 
 [resource]
 script = ExtResource("1_dirrf")
 name = "Tommy Gun"
-description = "Attack for %2 damage 3 times."
+description = "Do 2 damage 3 times"
 sprite = ExtResource("2_b3js3")
 numbers = Array[int]([])
+custom_behavior = SubResource("Resource_62exd")
+sound_effect = ExtResource("2_cyl64")
 action = 16
 card_flags = 0

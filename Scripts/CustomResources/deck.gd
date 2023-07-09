@@ -28,6 +28,7 @@ func move_card(first_index: int, second_index: int) -> void:
 	moved_card.emit(first_index, second_index)
 	
 func shuffle_deck() -> void:
+	AudioSingleton.play_sfx(load("res://Assets/SFX/shuffle.wav"))
 	for i in range(cards.size()):
 		var random_index = randi() % cards.size()
 		move_card(i, random_index)
