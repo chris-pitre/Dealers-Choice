@@ -25,7 +25,6 @@ static var discard: Deck = Deck.new()
 
 func _ready() -> void:
 	battle_manager.battle_ended.connect(_on_battle_end)
-	dealer.battle = self
 	draw_pile_display.deck = deck
 	discard_pile_display.deck = discard
 	draw_pile.deck = deck
@@ -68,6 +67,7 @@ func give_dealer_cards() -> void:
 			shuffle_discard_in()
 		var add_card = deck.remove_top_card()
 		move_card_anim($DrawPile.position, Vector2(320, 180) - Vector2(64, 96) / 2, add_card)
+		print(add_card)
 		dealer.deck.add_card(add_card)
 		await get_tree().create_timer(0.05).timeout
 	await get_tree().create_timer(0.2).timeout

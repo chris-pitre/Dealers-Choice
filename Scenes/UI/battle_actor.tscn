@@ -32,7 +32,7 @@ size_flags_vertical = 3
 alignment = 2
 
 [node name="NameLabel" type="Label" parent="."]
-z_index = 1
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("4_38bxj")

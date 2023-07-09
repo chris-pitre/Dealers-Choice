@@ -49,6 +49,7 @@ func _set_deck(_deck: Deck) -> void:
 	deck.shuffled.connect(_deck_shuffled)
 	deck.cleared.connect(_deck_cleared)
 	deck.card_flags_modified.connect(_deck_card_flags_modified)
+	reinit_deck()
 
 func _deck_added_card() -> void:
 	var new_card_display = add_card(deck.cards[deck.size() - 1])

@@ -13,7 +13,6 @@ var points: int = 20 : set = _set_points
 @export var point_label: Label
 
 var peeked = false
-var battle: Battle
 
 @onready var deck: Deck = Deck.new(): set = _set_deck
 

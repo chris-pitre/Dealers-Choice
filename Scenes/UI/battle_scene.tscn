@@ -272,7 +272,6 @@ theme_override_constants/h_separation = -37
 alignment = 1
 vertical = false
 hover_direction = Vector2(0, -96)
-hide_by_default = true
 
 [node name="Description" type="Label" parent="DiscardPile"]
 visible = false
