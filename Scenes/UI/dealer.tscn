@@ -145,6 +145,9 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="DealerActionBar/Mark" to="." method="_on_mark_mouse_entered"]
 [connection signal="mouse_exited" from="DealerActionBar/Mark" to="." method="_on_mark_mouse_exited"]
 [connection signal="pressed" from="DealerActionBar/Mark" to="." method="_on_mark_pressed"]
+[connection signal="mouse_entered" from="DealerActionBar/Discard" to="." method="_on_discard_mouse_entered"]
+[connection signal="mouse_exited" from="DealerActionBar/Discard" to="." method="_on_discard_mouse_exited"]
+[connection signal="pressed" from="DealerActionBar/Discard" to="." method="_on_discard_pressed"]
 
 [editable path="DealerActionBar/Shuffle"]
 [editable path="DealerActionBar/SwapBack"]

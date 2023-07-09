@@ -1,6 +1,7 @@
 class_name Battle extends Control
 
 signal lost()
+signal new_battle
 
 const CARD_DISPLAY = preload("res://Scenes/UI/card_display.tscn")
 const ROUND_RATIO = 0.4
@@ -77,13 +78,15 @@ func shuffle_discard_in() -> void:
 	discard.clear()
 
 func get_new_battle() -> void:
-	pass
+	battle_manager.battle_end = true
+	new_battle.emit()
 
 func _on_battle_end() -> void:
-	await get_tree().create_timer(0.5).timeout
-	give_dealer_cards()
-	await get_tree().create_timer(0.5).timeout
-	dealing_phase()
+	if not battle_manager.battle_end:
+		await get_tree().create_timer(0.5).timeout
+		give_dealer_cards()
+		await get_tree().create_timer(0.5).timeout
+		dealing_phase()
 
 func play_card_anim(from: Vector2, card: Card) -> void:
 	var moving_card = CARD_DISPLAY.instantiate()
@@ -145,6 +148,7 @@ func _on_battle_actor_2_played_card(from, card) -> void:
 
 func _on_battle_actor_actor_death(actor) -> void:
 	lost.emit()
+	get_tree().quit()
 
 func _on_battle_actor_2_actor_death(actor) -> void:
 	get_new_battle()

@@ -20,8 +20,10 @@ signal played_card(from: Vector2, card: Card)
 func _ready() -> void:
 	if data == null:
 		data = GeneratorSingleton.create_random_enemy()
-	if data.deck == null:
+	if data.deck == null and not is_player:
 		data.deck = await GeneratorSingleton.create_random_deck(randi() % 7 + 6)
+	if data.deck == null and is_player:
+		data.deck = await PlayerSingleton.get_deck()
 	deck_display.deck = data.deck
 	load_data()
 

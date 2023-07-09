@@ -12,3 +12,6 @@ script = ExtResource("1_qrcfu")
 [node name="CardSelector" parent="." instance=ExtResource("3_gpjm1")]
 offset_top = 360.0
 offset_bottom = 360.0
+
+[connection signal="new_battle" from="Battle" to="." method="_on_battle_new_battle"]
+[connection signal="selected_card" from="CardSelector" to="." method="_on_card_selector_selected_card"]

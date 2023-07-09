@@ -9,6 +9,8 @@ var battle_queue: Array[BattleActor]
 var player: BattleActor : set = _set_player
 var enemy: BattleActor : set = _set_enemy
 
+var battle_end: bool = false
+
 signal turn_changed(actor: BattleActor)
 signal battle_ended
 
@@ -31,7 +33,7 @@ func create_queue() -> void:
 			battle_queue.append(enemy)
 	
 func start_battle() -> void:
-	while not battle_queue.is_empty():
+	while not battle_queue.is_empty() and not battle_end:
 		var turn = battle_queue[0]
 		turn_changed.emit(turn)
 		var opponent = enemy if turn == player else player
@@ -58,7 +60,7 @@ func swap_turns(first_index: int, target_index: int, actor: BattleActor) -> void
 	
 
 ## We do a little rushing
-func _do_rush(actor: BattleActor):
+func _do_rush(actor: BattleActor) -> void:
 	var first_index = battle_queue.find(actor)
 	var second_index = battle_queue.find(actor, first_index+1)
 	var third_index = battle_queue.find(actor, second_index+1)
@@ -67,7 +69,7 @@ func _do_rush(actor: BattleActor):
 	if third_index != -1 and battle_queue.size() > 4:
 		swap_turns(first_index, third_index, actor)
 	
-func _lose_turn(actor: BattleActor):
+func _lose_turn(actor: BattleActor) -> void:
 	var index = battle_queue.find(actor)
 	if index != -1:
 		battle_queue.pop_at(index)

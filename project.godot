@@ -17,9 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-ExitSingleton="*res://Scripts/exit_singleton.gd"
-GeneratorSingleton="*res://Scripts/generator_singleton.gd"
-AudioSingleton="*res://Scripts/audio_singleton.gd"
+ExitSingleton="*res://Scripts/Singletons/exit_singleton.gd"
+GeneratorSingleton="*res://Scripts/Singletons/generator_singleton.gd"
+AudioSingleton="*res://Scripts/Singletons/audio_singleton.gd"
+PlayerSingleton="*res://Scripts/Singletons/player_singleton.gd"
 
 [display]
 
@@ -40,3 +41,4 @@ quit_game={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.156863, 0.172549, 0.235294, 1)
