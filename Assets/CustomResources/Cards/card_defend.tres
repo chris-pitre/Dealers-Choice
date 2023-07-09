@@ -8,6 +8,6 @@ script = ExtResource("1_2ngii")
 name = "Defend"
 description = "Prevents the next %d damage."
 sprite = ExtResource("2_3xla1")
-numbers = Array[int]([5])
+numbers = Array[int]([10])
 action = 2
 card_flags = 0

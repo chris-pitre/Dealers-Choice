@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://d0h0hi21mbrmn"]
+
+[ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="1_folqc"]
+[ext_resource type="Script" path="res://Scripts/CustomCardBehavior/intimidate.gd" id="1_ovvsg"]
+[ext_resource type="Texture2D" uid="uid://2k3g5c4b3ypd" path="res://Assets/Art/Cards/card_skill_intimidate.png" id="2_px2bo"]
+
+[sub_resource type="Resource" id="Resource_8qjdq"]
+script = ExtResource("1_ovvsg")
+
+[resource]
+script = ExtResource("1_folqc")
+name = "Intimidate"
+description = "Discard Opponents Top Card"
+sprite = ExtResource("2_px2bo")
+numbers = Array[int]([])
+custom_behavior = SubResource("Resource_8qjdq")
+action = 16
+card_flags = 0

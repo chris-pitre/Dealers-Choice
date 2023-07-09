@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://day0eg7c6lj15"]
+
+[ext_resource type="Script" path="res://Scripts/CustomCardBehavior/cheat.gd" id="1_4fcar"]
+[ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="2_dmm1w"]
+[ext_resource type="Texture2D" uid="uid://bk1vux403bdt" path="res://Assets/Art/Cards/card_skill_eye.png" id="3_1dlsw"]
+
+[sub_resource type="Resource" id="Resource_qewx4"]
+script = ExtResource("1_4fcar")
+
+[resource]
+script = ExtResource("2_dmm1w")
+name = "Cheat"
+description = "Use a random card"
+sprite = ExtResource("3_1dlsw")
+numbers = Array[int]([])
+custom_behavior = SubResource("Resource_qewx4")
+action = 16
+card_flags = 0
