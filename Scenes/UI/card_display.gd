@@ -4,6 +4,9 @@ class_name CardDisplay extends Control
 var card: Card
 var flipped: bool = false
 var flipping = false
+var velocity: Vector2 = Vector2.ZERO
+var accel: Vector2 = Vector2.ZERO
+var angular_velocity: float = 0.0
 
 
 @export var name_label: Label
@@ -12,6 +15,12 @@ var flipping = false
 @export var card_back: TextureRect
 @export var hoverable: bool = true
 @export var hover_direction: Vector2 = Vector2.RIGHT * 64
+
+
+func _physics_process(delta: float) -> void:
+	global_position += velocity * delta
+	rotation += angular_velocity * delta
+	velocity += accel * delta
 
 
 func load_card(card: Card) -> void:

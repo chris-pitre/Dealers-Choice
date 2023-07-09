@@ -47,7 +47,6 @@ func _deck_moved_card(first_index: int, second_index: int) -> void:
 	for child in get_children():
 		child.load_card(deck.cards[i])
 		i += 1
-	#add some anim here later or something
 
 func _deck_card_flags_modified(idx: int, new_flags: int) -> void:
 	get_child(idx).display_flags(new_flags)

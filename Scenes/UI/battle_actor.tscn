@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl7n7dtjesfee"]
+[gd_scene load_steps=7 format=3 uid="uid://dl7n7dtjesfee"]
 
 [ext_resource type="PackedScene" uid="uid://d0qb1xb2vinlw" path="res://Scenes/UI/deck_display.tscn" id="1_toyj5"]
 [ext_resource type="Script" path="res://Scenes/UI/battle_actor.gd" id="1_xwkth"]
 [ext_resource type="PackedScene" uid="uid://1xlmutoli5xt" path="res://Scenes/UI/healthbar.tscn" id="2_odalc"]
+[ext_resource type="FontFile" uid="uid://dsll48v48qv42" path="res://Assets/EquipmentPro.ttf" id="4_38bxj"]
 [ext_resource type="Texture2D" uid="uid://b0c77a1jvfk1o" path="res://Assets/Art/UI/portraitback.png" id="4_gpiod"]
-[ext_resource type="PackedScene" path="res://Scenes/UI/statuses_bar.tscn" id="5_rsfcg"]
+[ext_resource type="PackedScene" uid="uid://s5qmuv01fj5v" path="res://Scenes/UI/statuses_bar.tscn" id="5_rsfcg"]
 
-[node name="BattleActor" type="VBoxContainer" node_paths=PackedStringArray("deck_display", "healthbar", "statuses", "portrait_sprite")]
+[node name="BattleActor" type="VBoxContainer" node_paths=PackedStringArray("deck_display", "healthbar", "statuses", "name_label", "portrait_sprite")]
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 64.0
@@ -15,6 +16,7 @@ script = ExtResource("1_xwkth")
 deck_display = NodePath("DeckDisplay")
 healthbar = NodePath("Healthbar")
 statuses = NodePath("StatusesBar")
+name_label = NodePath("NameLabel")
 portrait_sprite = NodePath("Portrait/Sprite")
 
 [node name="Healthbar" parent="." instance=ExtResource("2_odalc")]
@@ -24,6 +26,12 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_38bxj")
+text = "Name"
 
 [node name="Portrait" type="TextureRect" parent="."]
 layout_mode = 2

@@ -35,8 +35,6 @@ func attack_phase() -> void:
 	if battle_manager.enemy == null:
 		battle_manager.enemy = battle_actor_right
 	
-	print("-------------------------------------")
-	
 	battle_manager.create_queue()
 	battle_manager.start_battle()
 
@@ -64,3 +62,35 @@ func _on_battle_end() -> void:
 	shuffle_decks_in([battle_manager.discard.cards])
 	await get_tree().create_timer(0.5).timeout
 	dealing_phase()
+
+
+func play_card_anim(from: Vector2, card: Card) -> void:
+	var moving_card = CARD_DISPLAY.instantiate()
+	add_child(moving_card)
+	moving_card.hoverable = false
+	moving_card.global_position = from
+	moving_card.load_card(card)
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(
+		moving_card,
+		"global_position",
+		Vector2(320, 180) - Vector2(64, 96) / 2,
+		0.3
+	)
+	await tween.finished
+	await get_tree().create_timer(0.5).timeout
+	moving_card.velocity = Vector2(randf_range(-100, 100), randf_range(-100, -160))
+	moving_card.accel = Vector2(0, 980)
+	await get_tree().create_timer(2).timeout
+	moving_card.queue_free()
+	
+
+
+func _on_battle_actor_played_card(from, card) -> void:
+	play_card_anim(from, card)
+
+
+func _on_battle_actor_2_played_card(from, card) -> void:
+	play_card_anim(from, card)
