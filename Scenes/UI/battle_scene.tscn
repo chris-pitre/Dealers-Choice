@@ -198,6 +198,7 @@ hover_direction = Vector2(0, -96)
 hide_by_default = true
 
 [node name="Description" type="Label" parent="DrawPile"]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -274,6 +275,7 @@ hover_direction = Vector2(0, -96)
 hide_by_default = true
 
 [node name="Description" type="Label" parent="DiscardPile"]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0

@@ -78,10 +78,7 @@ theme_override_fonts/font = ExtResource("3_w8y0y")
 text = "(The one you pick is not guaranteed!)"
 horizontal_alignment = 1
 vertical_alignment = 1
-<<<<<<< Updated upstream
-=======
 
 [connection signal="pressed" from="NinePatchRect/MarginContainer/CardButtons/CardAddButton" to="." method="_on_card_add_button_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/CardButtons/CardAddButton2" to="." method="_on_card_add_button_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/CardButtons/CardAddButton3" to="." method="_on_card_add_button_pressed"]
->>>>>>> Stashed changes

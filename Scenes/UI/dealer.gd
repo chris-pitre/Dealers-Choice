@@ -10,7 +10,6 @@ var points: int = 20 : set = _set_points
 @export var peek_card: CardDisplay
 @export var num_cards_left_label: Label
 @export var action_description: Label
-@export var draw_pile: Button
 @export var point_label: Label
 
 var peeked = false
