@@ -2,6 +2,8 @@ class_name Main extends Node
 
 @onready var battle_scene = preload("res://Scenes/UI/battle_scene.tscn")
 
+@export var pause_menu: Control
+
 static var matches_won = 0
 static var score = 0
 
@@ -13,7 +15,7 @@ func _ready() -> void:
 
 func _input(event):
 	if event.is_action_pressed("quit_game"):
-		$PauseMenu.visible = not $PauseMenu.visible
+		pause_menu.visible = not pause_menu.visible
 
 func _on_battle_new_battle() -> void:
 	matches_won += 1
@@ -28,6 +30,7 @@ func _on_card_selector_selected_card(card):
 	active_battle = new_battle
 	active_battle.new_battle.connect(_on_battle_new_battle)
 	active_battle.lost.connect(_on_battle_lost)
+	move_child(active_battle, 0)
 
 func _on_battle_lost():
 	$DeathMenu.update_score()
