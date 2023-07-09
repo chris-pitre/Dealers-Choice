@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://cq302o1catn0d"]
+
+[ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="1_4wiw5"]
+[ext_resource type="Texture2D" uid="uid://dt83i4kf1pp47" path="res://Assets/Art/Cards/card_skill_dodge.png" id="2_5oqp1"]
+
+[resource]
+script = ExtResource("1_4wiw5")
+name = "Dodge"
+description = "Prepare to dodge the next attack for %d."
+sprite = ExtResource("2_5oqp1")
+numbers = Array[int]([7])
+action = 2
+card_flags = 0

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Card" load_steps=5 format=3 uid="uid://cy5i136dut2je"]
+
+[ext_resource type="Script" path="res://Scripts/CustomCardBehavior/assassinate.gd" id="1_gl83i"]
+[ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="1_x4oqv"]
+[ext_resource type="Texture2D" uid="uid://3lsqf7q71xpu" path="res://Assets/Art/Cards/card_attack_assassinate.png" id="2_8as3j"]
+
+[sub_resource type="Resource" id="Resource_hho7s"]
+script = ExtResource("1_gl83i")
+
+[resource]
+script = ExtResource("1_x4oqv")
+name = "Assassinate"
+description = "Deal %d Damage, Rush Opponent"
+sprite = ExtResource("2_8as3j")
+numbers = Array[int]([10])
+custom_behavior = SubResource("Resource_hho7s")
+action = 16
+card_flags = 0

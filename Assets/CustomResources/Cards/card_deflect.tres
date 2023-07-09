@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_maq7i")
 name = "Deflect"
-description = "Negates next Attack."
+description = "Gain %d Defense to deflect next attack"
 sprite = ExtResource("2_3tfsb")
 numbers = Array[int]([999])
 action = 2

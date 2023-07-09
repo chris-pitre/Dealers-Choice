@@ -33,6 +33,7 @@ func combine(deck: Deck) -> Deck:
 	return deck
 
 func shuffle_deck() -> void:
+	AudioSingleton.play_sfx(load("res://Assets/SFX/shuffle.wav"))
 	for i in range(cards.size()):
 		var random_index = randi() % cards.size()
 		move_card(i, random_index)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bnvj2kdaop6wr"]
+
+[ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="1_xii0j"]
+[ext_resource type="Texture2D" uid="uid://cedplrenfn3s" path="res://Assets/Art/Cards/card_skill_deceive.png" id="2_viftt"]
+
+[resource]
+script = ExtResource("1_xii0j")
+name = "Bluff"
+description = "Deals %d mental damage"
+sprite = ExtResource("2_viftt")
+numbers = Array[int]([1])
+action = 1
+card_flags = 0

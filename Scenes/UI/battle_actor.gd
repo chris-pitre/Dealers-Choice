@@ -5,6 +5,7 @@ enum STATUSES{
 }
 
 signal actor_rush_start(actor: BattleActor)
+signal actor_lose_turn(actor: BattleActor)
 signal actor_death(actor: BattleActor)
 signal played_card(from: Vector2, card: Card)
 
@@ -68,6 +69,9 @@ func heal(x: int) -> void:
 
 func rush() -> void:
 	actor_rush_start.emit(self)
+
+func lose_turn() -> void:
+	actor_lose_turn.emit(self)
 
 func update_statuses() -> void:
 	statuses.shield = data.shield

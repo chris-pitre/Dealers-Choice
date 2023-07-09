@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dcjkphoc4vs5w"]
+[gd_resource type="Resource" script_class="Card" load_steps=4 format=3 uid="uid://dcjkphoc4vs5w"]
 
 [ext_resource type="Script" path="res://Scripts/CustomResources/card.gd" id="1_ulc4u"]
 [ext_resource type="Texture2D" uid="uid://7tacfxya1l4s" path="res://Assets/Art/Cards/card_attack_pistol.png" id="2_delfn"]
+[ext_resource type="AudioStream" uid="uid://gafw5jaf54sw" path="res://Assets/SFX/gunshot.wav" id="2_m3xpw"]
 
 [resource]
 script = ExtResource("1_ulc4u")
@@ -9,5 +10,6 @@ name = "Pistol"
 description = "Fires a pistol for %d damage."
 sprite = ExtResource("2_delfn")
 numbers = Array[int]([10])
+sound_effect = ExtResource("2_m3xpw")
 action = 1
 card_flags = 0
