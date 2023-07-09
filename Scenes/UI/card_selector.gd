@@ -23,6 +23,7 @@ func hide_cards() -> void:
 func get_random_cards() -> void:
 	for card_button in card_buttons.get_children():
 		card_button.set_card(GeneratorSingleton.get_random_card())
+		card_button.pressed.connect(_on_card_add_button_pressed)
 
 
 func _on_card_add_button_pressed(idx: int) -> void:

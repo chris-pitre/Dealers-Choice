@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://323am8ic3q42"]
+[gd_scene load_steps=5 format=3 uid="uid://323am8ic3q42"]
 
 [ext_resource type="Script" path="res://Scenes/main.gd" id="1_qrcfu"]
 [ext_resource type="PackedScene" uid="uid://d0wvh4jwf3mlh" path="res://Scenes/UI/battle_scene.tscn" id="1_xpr5i"]
 [ext_resource type="PackedScene" uid="uid://cvd3j16es0ny1" path="res://Scenes/UI/card_selector.tscn" id="3_gpjm1"]
+[ext_resource type="PackedScene" uid="uid://cxhex0vgxsog5" path="res://Scenes/UI/pause_menu.tscn" id="4_y2g0a"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_qrcfu")
@@ -12,6 +13,9 @@ script = ExtResource("1_qrcfu")
 [node name="CardSelector" parent="." instance=ExtResource("3_gpjm1")]
 offset_top = 360.0
 offset_bottom = 360.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_y2g0a")]
+visible = false
 
 [connection signal="new_battle" from="Battle" to="." method="_on_battle_new_battle"]
 [connection signal="selected_card" from="CardSelector" to="." method="_on_card_selector_selected_card"]
